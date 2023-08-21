@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		table {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+
+		th,
+		td {
+			border: 1px solid black;
+		}
+
+		.col1 {
+			width: 40px;
+		}
+
+		.col2 {
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		** Table 기본 태그 **
+		<table> 태그 : 표를 만드는 태그로, 표 전체를 감싸는 데 사용합니다.
+		<caption> 태그 : 표의 제목이나 설명을 작성하는 태그입니다.
+		<tr> 태그 : 표의 행으로, 자식 태그로 <th> 또는 <td> 태그가 반드시 있어야 합니다.
+		<th> 태그 : 표의 제목 열로, 부모태그인 <tr> 태그 안에 있어야 합니다.
+		<td> 태그 : 표의 일반 열로, 부모태그인 <tr> 태그 안에 있어야 합니다.
+		
+		** Table의 구조를 지정하는 태그 **
+		<thead> 태그 : 표의 제목 열들을 묶는 그룹 태그입니다.
+		<tbody> 태그 : 표의 일반적인 데이터들을 묶는 그룹 태그입니다.
+		<tfoot> 태그 : 표의 하단 영역을 묶는 그룹 태그입니다.
+		
+		** 행이나 열을 합치는 속성 **
+		rowspan : 행을 병합하는 속성입니다. 예) <td rowspan="2">
+		colspan : 열을 병합하는 속성입니다. 예) <td colspan="2">
+
+		** 열을 묶어 주는 태그 **
+		<colgroup> 태그 : 열을 그룹으로 묶을 수 있도록 해주는 태그입니다.
+		<col> 태그 : <colgroup> 태그의 자식으로 열 단위로 나눌 수 있습니다.
+	 -->
+	 <table>
+		<caption>성적표</caption>
+		<colgroup>
+			<col>
+			<col>
+			<col>
+			<col class="col2">
+			<col>
+			<col>
+		</colgroup>
+		<thead>
+			<tr>
+				<th>반</th>
+				<th>이름</th>
+				<th>국어</th>
+				<th>영어</th>
+				<th>수학</th>
+				<th>과학</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td rowspan="2">1반</td>
+				<td>홍길동</td>
+				<td>90점</td>
+				<td>80점</td>
+				<td>50점</td>
+				<td>60점</td>
+			</tr>
+			<tr>
+				<!-- <td>1반</td> -->
+				<td>김영희</td>
+				<td>50점</td>
+				<td>60점</td>
+				<td>90점</td>
+				<td>100점</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th colspan="2">평균</th>
+				<!-- <td></td> -->
+				<td>70점</td>
+				<td>70점</td>
+				<td>70점</td>
+				<td>80점</td>
+			</tr>
+		</tfoot>
+	 </table>
+</body>
+</html>

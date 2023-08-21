@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!--
+	<img> 태그 : 웹 문서에 이미지를 삽입할 때 사용합니다.
+		예) <img src="images/cat.jpg" alt="고양이">
+		** 속성 **
+		src : 필수 속성으로, 경로를 지정합니다.
+		alt : 필수는 아니지만 속성값을 사용자에게 읽어주어, 장애인의 웹 접근성을 도와줍니다.
+		height : 높이를 설정합니다. (정수입력시 픽셀단위, 정수% 입력시 비율단위)
+		width : 너비를 설정합니다. (정수입력시 픽셀단위, 정수% 입력시 비율단위)
+	
+	절대경로 : 리소스의 절대적인 고유한 경로입니다.
+		예) http프로토콜로 시작하는 경우 : http://www.naver.com/cat.jpg
+			루트 디렉토리부터 시작하는 경우 : /cat.jpg
+			로컬PC의 경우 : C:\user\php\cat.jpg
+
+	상대경로 : 현재 문서를 기준으로 경로를 인식하는 방법입니다.
+		예) 동일한 폴더에 위치한 경우 : src="cat.jpg"
+			상위 폴더에 위치한 경우 : src="../cat.jpg"
+			하위 폴더에 위치한 경우 : src="img/cat.jpg"
+	-->
+
+	<!-- <img src="D:\workspace\2308_php\html\img\meerkat.jpg" alt="미어캣"> -->
+	<img src="../img/meerkat.jpg" alt="미어캣" height="200px">
+	<br>
+	<img src="./img/meerkat.jpg" alt="미어캣2">
+	<br>
+	<img src="../img/meerkat.jpg" alt="미어캣3">
+</body>
+</html>

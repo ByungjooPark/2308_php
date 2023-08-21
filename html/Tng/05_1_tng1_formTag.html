@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>회원가입을 환영합니다</h1>
+
+	<form action="">
+		<fieldset>
+			<legend>사용자 정보</legend>
+			<ul>
+				<li>
+					<label for="id">아이디</label>
+					<input type="text" name="id" id="id" minlength="4" maxlength="10" placeholder="4자 ~ 10자 사이, 공백없이" required>
+				</li>
+				<li>
+					<label for="email">이메일</label>
+					<input type="email" name="" id="email">
+				</li>
+				<li>
+					<label for="pw">비밀번호</label>
+					<input type="password" id="pw" placeholder="문자와 숫자, 특수 기호 포함" required>
+				</li>
+				<li>
+					<label for="pwchk">비밀번호 확인</label>
+					<input type="password" id="pw_chk" required>
+				</li>
+				<li>
+					<span>가입 경로</span>
+					<select name="select" id="select">
+						<option value="0">블로그</option>
+						<option value="1">지인소개</option>
+						<option value="2" selected>기타</option>
+					</select>
+				</li>
+				<li>
+					<label for="textbox">메모</label>
+					<textarea name="memo" id="textbox" cols="30" rows="10" placeholder="남길 말씀이 있다면여기에"></textarea>
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>이벤트와 새로운 소식</legend>
+			<div>
+				<input type="radio" name="radio" id="r_1" value="1">
+				<label for="r_1">메일 수신</label>
+				
+				<input type="radio" name="radio" id="r_0" value="0" checked>
+				<label for="r_0">메일 수신 안 함</label>
+			</div>
+		</fieldset>
+		<input type="submit" value="가입하기" name="submit" id="submit">
+		<input type="reset" value="취소" name="reset" id="reset">
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!-- <form>태그 : 정보를 제출하기 위하여 범위를 지정하는 역할을 합니다. -->
+	<form action="">
+		<fieldset>
+			<legend>기본사항</legend>
+			<label for="id">ID : </label>
+			<input type="text" name="id" id="id" maxlength="5" placeholder="요기는 아이디">
+			<br>
+			<label for="pw">PW : </label>
+			<input type="password" name="pw" id="pw" required>
+			<br>
+			<label for="txta">기타 : </label>
+			<textarea name="txta" id="txta" cols="10" rows="5"></textarea>
+			<br>
+			<label for="poketmon">poketmon : </label>
+			<select name="poketmon" id="poketmon">
+				<option value="0">피카츄</option>
+				<option value="1">라이츄</option>
+				<option value="2">파이리</option>
+			</select>
+		</fieldset>
+		<br>
+		<label for="email">email : </label>
+		<input type="email" name="email" id="email" readonly value="셋팅값">
+		<br>
+		<label for="number">number : </label>
+		<input type="number" id="number" min="0" max="5">
+		<br>
+		<label for="range">range : </label>
+		<input type="range" id="range" min="0" max="10">
+		<br>
+		<label for="date">date : </label>
+		<input type="date" id="date">
+		
+		<br>
+		<label for="banana">바나나</label>
+		<input type="checkbox" id="banana" name="chk_fruit">
+		<label for="sb">딸기</label>
+		<input type="checkbox" id="sb" name="chk_fruit">
+		<label for="wm">수박</label>
+		<input type="checkbox" id="wm" name="chk_fruit">
+
+		<br>
+		<br>
+		<label for="zz">짜장면</label>
+		<input type="radio" id="zz" name="foods">
+		<label for="ta">탕수육</label>
+		<input type="radio" id="ta" name="foods">
+
+		<br>
+		<input type="submit" value="전송">
+		<input type="reset">
+
+		<br>
+		<br>
+		<button type="submit">전송</button>
+		<button type="reset">초기화</button>
+		<button type="button">버튼</button>
+
+		<br>
+		<input type="hidden" value="히든" name="hiddne">
+	</form>
+</body>
+</html>
