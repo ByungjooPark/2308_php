@@ -1,0 +1,14 @@
+table {
+	/* 테두리을 설정합니다. */
+	/* 자세한 속성명 및 속성값은 아래 사이트에서 참조 가능합니다. */
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Table */
+	border: 1px solid #000; /* 속성값은 순서대로 "테두리 두께, 선종류, 색상"입니다. */
+	border-collapse: collapse; /* 중복된 테두리을 하나로 합칩니다. */
+	caption-side: bottom; /* 캡션의 위치를 설정합니다. */
+	/* border-spacing: 20px 15px; */ /* 테두리끼리의 여백을 지정합니다. */
+}
+
+th, td {
+	border: 1px dotted #000;
+	width: 100px;
+}

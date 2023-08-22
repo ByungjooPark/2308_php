@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap');
+
+* {
+	font-family: 'Black And White Picture', sans-serif; /* 폰트를 설정 해줍니다. */
+}
+
+.p1_size1 {
+	font-size: xx-small; /* 키워드로 폰트 크기를 조절합니다. */
+}
+.p1_size2 {
+	font-size: medium; /* 키워드로 폰트 크기를 조절합니다. */
+}
+.p1_size3 {
+	font-size: xx-large; /* 키워드로 폰트 크기를 조절합니다. */
+}
+.p1_size4 {
+	font-size: 10px; /* 픽셀단위로 폰트 크기를 조절합니다. */
+}
+.p1_size5 {
+	font-size: 1.5em; /* 부모 요소의 글자크기 기준 배율로 폰트크기를 조절 */
+}
+.p1_size6 {
+	font-size: 1.5rem; /* 최상위 요소의 글자크기 기준 배율로 폰트크기를 조절 */
+}
+
+.p1_weight1 {
+	font-weight: 100; /* 글자의 두께를 조절합니다. 100~900 */
+}
+.p1_weight2 {
+	font-weight: 400; /* 글자의 두께를 조절합니다. 100~900 */
+}
+.p1_weight3 {
+	font-weight: 900; /* 글자의 두께를 조절합니다. 100~900 */
+}

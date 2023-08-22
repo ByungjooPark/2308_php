@@ -1,0 +1,20 @@
+.tran {
+	/* 텍스트를 변환해 줍니다. */
+	text-transform: capitalize; /* 영어 첫번째 글자를 대문자로 변환해 줍니다. */
+	text-transform: uppercase; /* 영어 대문자로 변환해 줍니다. */
+	text-transform: lowercase; /* 영어 소문자로 변환해 줍니다. */
+}
+
+.spacing {
+	letter-spacing: 1.5em; /* 자간을 설정합니다. */
+}
+
+.w_spacing {
+	word-spacing: 10px; /* 단어 사이의 공간을 설정합니다. */
+}
+
+.shadow {
+	/* 텍스트에 그림자 효과를 줍니다. */
+	/* 속성값은 순서대로 그림자의 "가로위치, 세로위치, 그림자 크기, 색상" 입니다.*/
+	text-shadow: 5px 5px 5px #ff6904;
+}

@@ -1,0 +1,34 @@
+.container {
+	width: 600px;
+}
+.header {
+	padding: 10px;
+}
+.chk-padding {
+	padding: 5px;
+}
+.bc-black {
+	background-color: #000;
+}
+.fc-white {
+	color: #fff;
+}
+h2 {
+	color: red;
+}
+.fc-main-text {
+	color: blue;
+}
+.fc-orange {
+	color: orange;
+}
+.border {
+	border: 1px solid #000;
+}
+p {
+	font-weight: 900;
+	margin: 0;
+}
+.test-center {
+	text-align: center;
+}

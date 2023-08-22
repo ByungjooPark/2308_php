@@ -1,0 +1,23 @@
+.deco {
+	text-decoration: none; /* 아무 효과를 주지 않습니다. */
+	text-decoration: underline; /* 텍스트에 밑줄을 그어줍니다. */
+	text-decoration: line-through; /* 텍스트에 취소선을 그어줍니다. */
+}
+
+.height {
+	line-height: 2em; /* 중앙정렬을 해줍니다. */
+}
+
+.left {
+	text-align: left; /* 좌정렬을 해줍니다. */
+}
+.right {
+	text-align: right; /* 우정렬을 해줍니다. */
+}
+.center {
+	background-color: cadetblue; /*  배경색을 지정합니다. */
+	width: 100%; /* 블럭 레벨 요소의 width를 설정합니다. */
+	height: 300px; /* 블럭 레벨 요소의 height를 설정합니다. */
+	text-align: center; /* 텍스트를 가운데 정렬 해줍니다. */
+	line-height: 300px; /* height속성과 같은 속성값을 설정하여 중앙정렬을 해줍니다. */
+}

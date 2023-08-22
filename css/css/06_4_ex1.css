@@ -1,0 +1,16 @@
+#h1-id {
+	color: aqua;
+}
+
+.h1-1 {
+	color: blue;
+}
+
+h1 {
+	color: red !important;
+}
+
+h1 {
+	color: orange;
+}
+
