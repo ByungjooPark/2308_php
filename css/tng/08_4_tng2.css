@@ -1,0 +1,54 @@
+header, main, footer {
+	width: 1200px; /* 헤더, 메인, 푸터 너비 지정 */
+}
+main, aside, article {
+	height: 600px; /* 메인 영역 높이 지정 */
+}
+header {
+	height: 120px; /* 헤더 높이 지정 */
+	background-color: aqua;
+}
+aside, article {
+	float: left; /* 사이드바와 본문 float 지정 */
+}
+.side_1 {
+	width: 250px; /* 사이드바1 너비 지정 */
+	background-color: beige;
+}
+article {
+	width: 800px; /* 본문 너비 지정 */
+	background-color: cornflowerblue;
+}
+.side_2 {
+	width: 150px; /* 사이드바2 너비 지정 */
+	background-color:blanchedalmond
+}
+footer {
+	height: 100px; /* 푸터 높이 지정 */
+	background-color: chartreuse;
+	clear: both; /* 푸터에서 float 해제 */
+}
+
+section {
+	float: left;
+	background-color: aquamarine;
+	margin: 10px;
+}
+
+.s-end {
+	clear: both;
+}
+
+.div-1 {
+	width: 400px;
+}
+
+.w-50 {
+	width: 45%;
+	height: 100px;
+}
+
+.w-30 {
+	width: 25%;
+	height: 100px;
+}

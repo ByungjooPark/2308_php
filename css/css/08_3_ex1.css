@@ -1,0 +1,36 @@
+/* 
+	margin 속성 : 외부 여백을 지정합니다.
+		> 1개 지정 : 4방향 지정
+		> 2개 지정 : 첫번째 값은 위아래, 두번째 값은 좌우를 지정
+		> 3개 지정 : 위 -> 좌우 -> 아래 순으로 지정
+		> 4개 지정 : 위 -> 우 -> 아래 -> 좌 순으로 지정
+		> auto : 마진을 자동으로 계산해 줍니다.
+	
+	margin-top, margin-bottom, margin-left, margin-right 속성을 사용하여
+	각각 지정할 수도 있습니다.
+
+	마진 중첩
+	HTML 요소를 세로로 배치할 경우 margin과 margin이 만날 때,
+	margin 값이 큰 쪽으로 겹쳐지는 현상입니다.
+	(가로로 배치할 경우는 상관없습니다.)
+*/
+.container_1 {
+	border: 5px solid #000;
+	width: 400px;
+	margin: 10px;
+}
+.container_2 {
+	border: 5px solid #000;
+	width: 400px;
+	margin: 20px;
+}
+h1, p {
+	border: 1px solid #000;
+	width: 150px;
+	margin: 10px auto;
+}
+
+span {
+	border: 1px solid #000;
+	margin: 10px;
+}

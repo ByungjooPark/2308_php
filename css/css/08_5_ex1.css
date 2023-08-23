@@ -1,0 +1,75 @@
+/* 
+	position 속성 : HTML 요소를 배치하는 방법을 지정합니다.
+	** 속성 값 **
+	-static : 기본값으로 일반적인 문서의 흐름에 맞춰 배치합니다.
+	-relative : 
+		static 위치에서 top, right, bottom, left와 같은 속성에 의한 상대적인 위치값을 지정합니다.
+		그외에는 static와 같습니다.
+	-absolute :
+		요소가 문서의 일반적인 흐름을 따르지 않게 합니다.
+		relative값을 사용한 상위 요소를 기준으로 위치값을 지정합니다.
+		position: static 속성을 가지고 있지 않은 부모를 기준으로 움직입니다.
+	-fixed : 뷰 포트을 기준으로 위치값을 지정합니다.
+	-sticky :
+		요소가 HTML 문서안에서 static과 같이 일반적인 흐름에 따라가다가
+		스크롤 위치가 임계점에 이르면 화면에 고정할 수 있는 속성입니다.
+		top 속성만 적용됩니다.
+		자신의 바로 위의 부모요소 안에서만 적용됩니다.
+		
+	z-index 속성 :
+	HTML 요소의 배치 순서를 결정하는 속성입니다.
+	position (relative, absolute, fixed)속성이 적용된 요소에서만 작동
+*/
+
+main, section, article {
+	padding: 20px;
+}
+section {
+	background-color: antiquewhite;
+	position: relative;
+}
+article {
+	background-color: darkgreen;
+	height: 1000px;
+}
+.div_static {
+	background-color: lightslategray;
+	position: static;
+}
+.div_relative {
+	background-color: rgb(182, 102, 102);
+}
+.div_absolute {
+	background-color: dimgrey;
+	position: absolute;
+	z-index: 0;
+}
+.div_fixed {
+	background-color: olive;
+	position: fixed;
+	right: 10%;
+	bottom: 10%;
+}
+.div_sticky {
+	background-color: rgb(182, 123, 212);
+	position: sticky;
+	top: 0;
+}
+.zindex1 {
+	background-color: rgb(133, 133, 219);
+	width: 100px;
+	position: absolute;
+	z-index: 3;
+}
+.zindex2{
+	background-color: rgb(211, 129, 161);
+	width: 200px;
+	position: absolute;
+	z-index: 2;
+}
+.zindex3 {
+	background-color: rgb(126, 206, 108);
+	width: 300px;
+	position: absolute;
+	z-index: 1;
+}

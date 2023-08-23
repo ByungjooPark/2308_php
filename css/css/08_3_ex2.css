@@ -1,0 +1,20 @@
+/* 
+	padding 속성 : 외부 여백을 지정합니다.
+		> 1개 지정 : 4방향 지정
+		> 2개 지정 : 첫번째 값은 위아래, 두번째 값은 좌우를 지정
+		> 3개 지정 : 위 -> 좌우 -> 아래 순으로 지정
+		> 4개 지정 : 위 -> 우 -> 아래 -> 좌 순으로 지정
+	
+	padding-top, padding-bottom, padding-left, padding-right 속성을 사용하여
+	각각 지정할 수도 있습니다.
+*/
+.container {
+	width: 300px;
+	border: 5px solid #000;
+	padding: 10px;
+}
+
+h1, p {
+	border: 1px solid #000;
+	width: 150px;
+}

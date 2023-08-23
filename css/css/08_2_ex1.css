@@ -1,0 +1,51 @@
+/* 
+속성명
+	-border-style : 테두리의 속성을 지정합니다. (참조 : https://developer.mozilla.org/en-US/docs/Web/CSS/border-style)
+	-border-width : 테두리의 두께를 지정합니다. (참조 : https://developer.mozilla.org/en-US/docs/Web/CSS/border-width)
+		> 1개 지정 : 4방향 테두리 지정
+		> 2개 지정 : 첫번째 값은 위아래, 두번째 값은 좌우를 지정
+		> 3개 지정 : 위 -> 좌우 -> 아래 순으로 지정
+		> 4개 지정 : 위 -> 우 -> 아래 -> 좌 순으로 지정
+	-border-color : 테두리의 색상을 지정합니다. (참조 : https://developer.mozilla.org/en-US/docs/Web/CSS/border-color)
+	-border : 테두리의 속성, 두께, 생상을 지정합니다. (참조 : https://developer.mozilla.org/en-US/docs/Web/CSS/border)
+	-border-radius : 테두리의 꼭짓점을 둥글게 만듭니다. (참조 : https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)
+		> 각 꼭지점을 다르게 지정하고 싶다면 아래의 속성명으로 지정이 가능합니다.
+			border-top-left-radius
+			border-top-right-radius
+			border-bottom-left-radius
+			border-bottom-right-radius
+*/
+div {
+	width: 200px;
+	height: 20px;
+	margin: 20px;
+}
+
+.div-1 {
+	border-style: none;
+}
+.div-2 {
+	border-style: solid;
+	border-color: blue;
+	border-width: 5px;
+}
+.div-3 {
+	border-style: dotted;
+	border-width: 5px 10px;
+}
+.div-4 {
+	border-style: dashed;
+	border-width: 5px 10px 15px;
+}
+.div-5 {
+	border-style: double;
+	border-width: 5px 10px 15px 20px;
+}
+.div-6 {
+	height: 200px;
+	border: 3px solid #000;
+	border-radius: 10px; /* px, em, rem, %등으로 속성 값을 줄 수 있습니다. */
+	/* border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px; */
+}
