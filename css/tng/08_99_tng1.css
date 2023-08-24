@@ -1,0 +1,23 @@
+.header, .main, .footer {
+	width: 800px;
+	margin: 10px auto; /* 좌우 외부 여백을 auto로 설정하여 중앙 정렬 */
+}
+.section {
+	border: 1px dashed #ccc;
+	width:350px;
+	height:200px;	
+	margin:10px;
+	padding:10px;	
+	float: left; /* float 설정으로 배치를 변경 */
+}
+.footer {
+	clear: both; /* float 설정 해제 */
+	background-color: #000;
+	color: #ffffff;
+	height:50px;
+	text-align: center; /* text를 가운데 정렬 */
+	line-height:50px; /* footer의 height값과 똑같이 하여 중앙 정렬 */
+}
+.section p {
+	font-size: 12px;
+}

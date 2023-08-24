@@ -1,0 +1,26 @@
+.container {
+	width: 500px;
+	height: 500px;
+	border: 1px solid #000;
+	position: relative; /* 하위요소에서 absolute 사용을 위해 relative 적용(static만 아니면 됨) */
+}
+div {
+	width: 150px;
+	height: 150px;
+	border: 1px solid #000;
+}
+.pos1 {
+	position: absolute; /* absolute 설정 */
+	top: 50px; /* 상위 요소의 left 기준으로 50px 이동 */
+	left: 50px; /* 상위 요소의 left 기준으로 50px 이동 */
+}
+.pos2 {
+	position: absolute; /* absolute 설정 */
+	top: 100px; /* 상위 요소의 top 기준으로 100px 이동 */
+	right: 100px; /* 상위 요소의 right 기준으로 100px 이동 */
+}
+.pos3 {
+	position: absolute; /* absolute 설정 */
+	bottom: 50px; /* 상위 요소의 bottom 기준으로 50px 이동 */
+	left: 50px; /* 상위 요소의 left 기준으로 50px 이동 */
+}

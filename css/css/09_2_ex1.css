@@ -1,0 +1,54 @@
+body {
+	background-image: url('../img/cat.jpg');
+	background-size: cover;
+}
+div {
+	width: 200px;
+	height: 200px;
+}
+.div-img {
+	width: 200px;
+	height: 200px;
+	border: 1px solid #000;
+	
+	overflow: scroll; /* content가 넘침 때 스크롤 생성 */
+
+	/*
+		background-image : 
+			HTML요소에 배경 이미지를 지정합니다.
+			복수의 이미지를 지정하여, 해당 이미지가 없을 때 차순위 이미지를 지정합니다.
+	*/
+	background-image: url('../img/cat.jpg');
+	
+	/* 
+	background-size : 배경 이미지의 크기를 설정합니다.
+		** 속성 값 **
+		-auto :  원본 크기를 유지(기본값)
+		-contain : 요소 안에 배경 이미지가 다 들어오도록 확대 및 축소
+		-cover : 요소를 모두 덮도록 이미지를 확대 및 축소 합니다.
+		-px, em, rem : 하나의 값을 주어 너비를 지정하고, 너비에 맞는 높이도 자동 계산합니다.
+		-% : 이미지의 비율에 맞도록 조절합니다.
+	*/
+	background-size: cover;
+	
+	/* 
+		background-position : 배경 이미지의 초기 위치를 설정합니다.
+			** 속성 값 **
+			-키워드 : top, left, right, bottom
+			-퍼센티지 : 25% 75%
+			-Edge offsets : bottom 30px right 50px
+	*/
+	background-repeat: no-repeat;
+
+	/* 
+		background-position : 배경 이미지의 초기 위치를 설정합니다.
+			** 속성 값 **
+			-키워드 : top, left, right, bottom
+			-퍼센티지 : 25% 75%
+			-Edge offsets : bottom 30px right 50px
+	*/
+	background-position: 50%;
+
+
+
+}

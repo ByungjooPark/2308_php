@@ -1,0 +1,65 @@
+div {
+	width: 400px;
+	height: 200px;
+	border: 2px solid #000;
+}
+/* 
+	그라데이션
+		두개 이상의 색상을 점진적으로 변화시키는 것을 그라데이션이라고 합니다.
+		기본적으로 "background" 속성에 해당하는 함수를 속성 값을 주어 설정합니다.
+
+		*함수란?
+			특정 목적의 작업을 수행하기 위해 독립적으로 설계된 코드의 집합
+
+	선형 그라데이션 : 직선을 따라 점진적으로 그라데이션 효과를 줍니다.
+		** 속성값 **
+		linear-gradient() 함수
+			키워드 : to(방향으로 결정), deg(각도값으로 조절)
+			예)
+			-linear-gradient(white, blue);
+				흰>파랑의 그라데이션을 왼쪽에서 오른쪽로 적용합니다.
+			-linear-gradient(to bottom, white, blue);
+				흰>파랑의 그라데이션을 위에서 아래로 적용합니다.
+			-linear-gradient(45deg, white, blue); 
+				흰>파랑의 그라데이션을 45도 방향으로 적용합니다.
+			-linear-gradient(to left, white, blue 50%, white);
+				흰>파>흰의 그라데이션을 오른쪽에서 왼쪽으로 적용합니다.
+				이때 파랑색의 위치는 요소의 50%에 위치합니다.
+*/
+.div1 {
+	background: linear-gradient(
+		to right
+		, red
+		,orange
+		,yellow
+		,green
+		,blue
+		,navy
+		,purple
+	);
+}
+/* 
+	원형 그라데이션 : 타원형 그라데이션 효과를 줍니다.
+		** 속성값 **
+		radial-gradient() 함수
+			키워드 : 
+				> 모양 : circle(원형), ellipse(타원형)
+				> 크기 : closest-side, closest-corner, farthest-side, farthest-corner(기본값)
+			예)
+			-radial-gradient(white, blue);
+				흰>파랑의 타원형 그라데이션을 적용합니다.
+			-radial-gradient(circle, white, blue);
+				흰>파랑의 원형 그라데이션을 위에서 아래로 적용합니다.
+			-radial-gradient(circle closest-corner, white, blue 50%); 
+				흰>파랑의 원형 그라데이션의 크기를 설정해 적용합니다.
+			-radial-gradient(circle at 0% 20%, white, blue 50%, white);
+				흰>파>흰의 그라데이션을 왼쪽 위 꼭지점을 기준으로 0%, 20% 기준으로 적용합니다.
+				이때 파랑색의 위치는 70%에 위치합니다.
+*/
+.div2 {
+	background: radial-gradient(
+		circle
+		, white
+		,blue
+	);
+}

@@ -1,0 +1,17 @@
+/*
+<배경색과 범위 지정>
+	background-color : HTML 요소의 배경 색을 지정합니다.
+	background-clip : HTML 요소의 배경 색 적용 범위를 지정합니다.
+		** 속성 값 **
+		-border-box : 테두리까지 적용합니다. (기본값)
+		-padding-box : 패딩범위까지 적용합니다.
+		-content-box : 콘텐츠 부분에만 적용합니다.
+*/
+h1 {
+	background-color: rgb(135, 224, 132);
+	border: 10px dotted #000;
+	background-clip: content-box;
+	width: 200px;
+	height: 100px;
+	padding: 20px;
+}

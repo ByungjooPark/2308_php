@@ -1,0 +1,30 @@
+body {
+	background-color: #000;
+}      
+.container{
+	margin: 0 auto;
+	width: 500px;
+	height: 700px;
+	border: 1px dotted gray;
+	padding: 20px;
+	/* background 관련 속성값을 아래처럼 한줄에 적을 수도 있습니다.*/
+	background: #ffffff url('../img/cat.jpg') no-repeat right bottom / 70%;
+}
+h1 {
+	background-color: #054041;
+	color: #ffffff;
+	text-align: center;
+	padding: 20px;
+}
+h2 {
+	text-align: center;
+	font-style: italic;
+	margin-bottom: 50px;
+}
+h3 {
+	color: #ff0000;
+}
+p {
+	text-indent: 3em; /* 들여쓰기 적용 */
+	margin: 6px;
+}
