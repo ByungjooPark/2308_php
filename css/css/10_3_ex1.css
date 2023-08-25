@@ -1,0 +1,56 @@
+a {
+	color:burlywood;
+}
+
+a:link {
+	color: blueviolet;
+}
+a:visited {
+	color: blue;
+}
+a:hover {
+	background-color: cornflowerblue;
+}
+
+#input-1:focus {
+	outline: none;
+	border: 2px solid yellow;
+}
+
+input:checked + label {
+	color: orange;
+}
+
+#target-1:target {
+	background-color: red;
+}
+
+.container :nth-child(4) {
+	color: yellow;
+}
+
+.container p:nth-of-type(2) {
+	color: green;
+}
+
+.container :not(p) {
+	color: chartreuse;
+}
+
+
+/* #label-2::before {
+	content: '필수';
+	color: aqua;
+} */
+
+.tt{
+	color: aqua;
+}
+
+.korean-1::first-letter {
+	background-color: black;
+}
+
+.korean-2::first-line {
+	background-color: black;
+}

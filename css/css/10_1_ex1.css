@@ -1,0 +1,16 @@
+/* 상위요소 하위요소 : 상위 요소에 포함된 모든 하위요소에 적용 */
+header span {
+	color: aqua;
+}
+/* 부모요소 > 하위요소 : 부모요소의 자식요소에게만 적용 */
+header>span {
+	color: red;
+}
+/* 형제요소 + 형제요소 : 인접한 형제요소 중 첫번째 형제 요소에 적용 */
+main span+p {
+	color: blue;
+}
+
+span~p {
+	color: blueviolet;
+}
