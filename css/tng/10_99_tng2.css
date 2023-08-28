@@ -1,0 +1,53 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+fieldset {
+	margin: 0 auto;
+	width: 500px;
+	background: url(../img/uncle-sam.jpg);
+	background-size: cover;
+}
+legend {
+	font-size: 30px;
+	font-weight: 900;
+	color: fuchsia;
+}
+form {
+	font-size: 15px;
+	font-weight: 900;
+}
+/* 필수 입력사항의 lavel에 표식을 설정합니다. */
+.label_required::before {
+	content: '*';
+	color: red;
+}
+/* 포커스 시 스타일 적용 */
+:focus {
+	outline: none;
+	border: 3px solid red;
+}
+input, textarea {
+	background: transparent; /* 배경을 투명하게 설정 */
+}
+/* radio의 요소 선택 시 스타일 설정 */
+:checked + label {
+	color: red;
+}
+#textbox_etc {
+	vertical-align: top; /* textarea의 lavel위 위치 조정 */
+}
+#btn_send {
+	position: relative; /* 상위요소에 relative 설정 */
+}
+/* 버튼에 마우스 올릴시 스타일 적용 */
+#btn_send:hover::after {
+	content: '내용을 다시 한 번 확인해 주세요.';
+	background-color: black;
+	color: white;
+	width: 300px;
+	font-size: 20px;
+	position: absolute; /* 위치 조절을 위해 absolute 설정 */
+	top: 0px;
+	left: 56px;
+}

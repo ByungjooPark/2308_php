@@ -10,7 +10,7 @@ header>span {
 main span+p {
 	color: blue;
 }
-
+/* 형제요소 ~ 형제요소 : 설정된 모든 형제 요소에 적용 */
 span~p {
 	color: blueviolet;
 }

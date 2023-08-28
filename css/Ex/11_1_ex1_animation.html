@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/11_1_ex1.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<div class="balls"></div>
+		<div class="balls"></div>
+		<div class="balls"></div>
+		<div class="balls"></div>
+		<div class="balls"></div>
+		<div class="balls"></div>
+		<div class="balls"></div>
+		<div class="balls"></div>
+	</div>
+	<script>
+		window.onload = function() {
+			let delay = 0;
+			const balls = document.querySelectorAll('.balls');
+			const str = '짜장면시키신분~';
+			let i = 0;
+			balls.forEach((ball, index) => {
+				setTimeout(() => {
+					ball.className = 'ball';
+					ball.innerHTML = str[i];
+					i++;
+				}, delay * 1000);
+				delay += 0.2;
+			});
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		@import url('../css/12_2_ex1_1.css') screen and (max-width: 600px);
+		@import url('../css/12_2_ex1_2.css') screen and (min-width: 601px) and (max-width: 800px);
+		@import url('../css/12_2_ex1_3.css') screen and (min-width: 801px);
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<!-- 
+		미디어 쿼리 :
+			접속하는 디바이스나 뷰포트에 따라 특정 CSS 스타일을 사용하는 방법입니다.
+			중단점(breakpoint)에서 어떤 CSS를 적용할 것인지 지정합니다.
+
+			예) @media [url(경로)] [only | not] 미디어 유형 [and 조건] * [and 조건]
+				-url(경로) : css파일을 지정합니다.
+				-only : 미디어쿼리를 지원하지 않는 웹 브라우저에서는 미디어 쿼리를 무시하고 실행하지 않습니다.(거의 사용 안함)
+				-not :not 다음에 지정하는 미디어 유형을 제외합니다.
+				-and : 조건을 여러개 연결해서 추가할 수 있습니다.
+
+				** 미디어 유형 **
+				-screen : 주로 화면이 대상입니다.
+				-all : 모든 장치에 적합합니다.
+				-print : 인쇄 결과물 및 출력 미리보기 화면에 표시 중인 문서입니다.
+				-speech : 음성 합성장치 대상입니다.
+
+				** 미디어 쿼리 조건 **
+				-min-width : 웹 뷰포트의 최소 너비
+				-max-width : 웹 뷰포트의 최대 너비
+
+		참고 사이트 : https://developer.mozilla.org/ko/docs/Learn/CSS/CSS_layout/Media_queries
+		
+		BreakPoint 가이드 라인 : https://m2.material.io/design/layout/responsive-layout-grid.html#breakpoints
+		
+		모바일 별 사이즈 : https://yesviz.com/
+	-->
+	<p>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem omnis similique error modi aut eos illo expedita aperiam temporibus consectetur cum quo eaque culpa veniam dolor, ipsa porro eveniet. Temporibus!
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem omnis similique error modi aut eos illo expedita aperiam temporibus consectetur cum quo eaque culpa veniam dolor, ipsa porro eveniet. Temporibus!
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem omnis similique error modi aut eos illo expedita aperiam temporibus consectetur cum quo eaque culpa veniam dolor, ipsa porro eveniet. Temporibus!
+	</p>
+</body>
+</html>

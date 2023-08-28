@@ -1,0 +1,35 @@
+/*
+	transform
+		HTML 요소를 회전, 크기 조절, 기울이기, 이동 효과를 나타낼 때 사용
+		** 해당 요소의 display 속성이 block 또는 inline-block 이어야 합니다.
+
+	Animation
+		요소에 적용되는 CSS 스타일을 다른 CSS 스타일로 부드럽게 전환
+		@keyframes 으로 애니메이션을 생성
+		
+		mdn 애니매이션 : https://developer.mozilla.org/ko/docs/Web/CSS/animation
+		애니매이션 참조 사이트 : https://coolcssanimation.com/
+*/
+.container{
+	display: flex;
+}
+
+.ball {
+	margin: 10px;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	background-color: cornflowerblue;
+	border-radius: 50%;
+	animation: moveUpDown 1s ease-in-out infinite alternate;
+}
+
+@keyframes moveUpDown {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(100px);
+	}
+}

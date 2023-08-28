@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 
+		모바일 웹(Mobile Web)이란?
+			데스크톱 PC용 웹사이트와 별개로 모바일 브라우저에서 이용자들이 편하게 이용할 수 있도록
+			PC용 웹사이트를 모바일 스크린 크기에 맞춰 줄여 놓은 것을 뜻합니다. 
+			주로 원래 PC용 웹사이트가 존재하던 상태에서 모바일용 웹사이트의 필요성을 느끼고
+			추가로 개발하는 경우가 많습니다.
+			예) 네이버
+					
+		반응형 웹(Responsive Web)이란?
+			한 가지의 웹사이트로 다양한 종류의 기기에 저절로 반응하여 최적화된 화면을 보여주는 웹을 뜻합니다.
+			요즘은 모바일퍼스트라고해서 모바일을 최우선으로 생각하고 구현하는 사이트가 많습니다.
+
+		모바일 웹과 반응형 웹의 차이
+			모바일 웹이 PC버전의 홈페이지와 모바일 홈페이지를 따로 제작하는 것이라면, 
+			반응형 웹은 하나의 홈페이지를 구축하면  데스크탑, 태블릿, 그리고 모바일에서도
+			최적화된 화면으로 볼 수 있습니다.
+
+		반응형 웹의 단점
+			-디자인에 자유도가 떨어집니다.
+			-로딩 속도도 느려지는 단점이 있습니다.
+			-로딩 속도를 높이기위해 콘텐츠의 양과 질이 떨어질 수 있습니다.
+
+		뷰포트(viewport) :  웹 브라우저에서 실제 내용이 표시되는 영역입니다.
+			예) <meta name="viewport" content="속성1=값1, 속성2=값2 ......">
+			-width : 뷰포트 가로
+			-height : 뷰포트 세로
+			-user-scalable : 사용자 확대/축소 가능 여부( yes 또는 no)
+			-initial-scale : 초기 화면 비율
+			-maximum-scale : 최대 확대 화면 비율
+			-minimum-scale : 최소 축소 화면 비율
+
+		뷰포트 단위 (현업에서는 vw와 vh를 사용)
+			-vw(viewport width): 뷰포트 너비. 100vw = 뷰포트 width 의 100%
+			-vh(viewport height): 뷰포트 높이. 100vh = 뷰포트 height 의 100%
+			-vmin(viewport minimum): 뷰포트의 너비와 높이 중에서 작은 값.
+			-vmax(viewport maximum): 뷰포트의 너비와 높이 중에서 큰 값.
+	-->
+	<div style="width: 50vw; background-color: yellow;">
+		<div style="width: 50vw; background-color: rgba(250, 235, 215, 0.8);">111</div>
+		<div style="width: 50%; background-color: blue;">222</div>
+		<div style="width: 30px; background-color: black;">333</div>
+		<p style="font-size: 2rem">마마마</p>
+	</div>
+</body>
+</html>
