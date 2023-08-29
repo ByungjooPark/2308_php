@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./12_4_tng2.css">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 방법1 -->
+	<!-- <div class="container">
+		<div class="item">1</div>
+		<div class="item">2</div>
+		<div class="item row-1">3</div>
+		<div class="item">4</div>
+		<div class="item item-box">
+			<div class="item row-1 col-2">5</div>
+			<div class="item row-1 col-2">6</div>
+		</div>
+	</div> -->
+
+	<!-- 방법2 -->
+	<div class="container">
+		<div class="flex-row">
+			<div class="item">1</div>
+			<div class="item">2</div>
+		</div>
+		<div class="flex-row">
+			<div class="item row-1">3</div>
+		</div>
+		<div class="flex-row">
+			<div class="item">4</div>
+			<div class="flex-item-box item">
+				<div class="item col-2">5</div>
+				<div class="item col-2">6</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

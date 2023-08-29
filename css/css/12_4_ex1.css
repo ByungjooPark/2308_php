@@ -24,26 +24,51 @@
 		-center : 주축의 중앙에 맞춰 배치합니다.
 		-space-between : 주축의 시작점에 첫번째 항목, 끝점에 마지막 항목을 배치 후 나머지를 같은 간격으로 배치합니다.
 		-space-around : 주축에 같은 간격으로 배치합니다.
+
+	align-items : 교차축을 기준으로 정렬합니다.
+		-flex-start : 교차축의 시작점에 맞추어 배치합니다.
+		-flex-end : 교차축의 끝점에 맞추어 배치합니다.
+		-center : 교차축의 중앙에 맞춰 배치합니다.
+		-baseline : 교차축의 문자 바닥 기준선에 맞추어 배치합니다. 
+		-stretch : 교차축에 가득 차게 배치합니다.
+
+	align-self : 특정 항목만 정렬 합니다.
+		-flex-start : 교차축의 시작점에 맞추어 배치합니다.
+		-flex-end : 교차축의 끝점에 맞추어 배치합니다.
+		-center : 교차축의 중앙에 맞춰 배치합니다.
+		-baseline : 교차축의 문자 기준선에 맞추어 배치합니다. 
+		-stretch : 교차축에 가득 차게 배치합니다.
+
+	align-content : 여러 줄일 때 교차축 정렬 방법을 지정합니다.
+		-flex-start : 교차축의 시작점에 맞추어 배치합니다.
+		-flex-end : 교차축의 끝점에 맞추어 배치합니다.
+		-center : 교차축의 중앙에 맞춰 배치합니다.
+		-space-between : 교차축의 시작점에 첫번째 항목, 끝점에 마지막 항목을 배치 후 나머지를 같은 간격으로 배치합니다.
+		-space-around : 교차축에 같은 간격으로 배치합니다.
+		-stretch : 교차축에 가득 차게 배치합니다.
 */
 
 .container {
 	background-color: gray;
 	margin: 10px;
-	width: 60vw;
+	width: 100vw;
 	height: 60vh;
 	display: flex;
 	/* flex-direction: row;
 	flex-wrap: wrap; */
 	flex-flow: row wrap;
 	/* justify-content: flex-start; */
-	align-items: stretch;
+	/* align-items: stretch; */
+	align-content: space-around;
 }
 .item {
-	width: 15vw;
+	width: 150px;
 	height: 15vh;
 	background-color: skyblue;
 	border: 1px solid #000;
+	box-sizing: border-box;
 }
 .item2 {
 	font-size: 30px;
+	/* align-self: flex-end; */
 }
