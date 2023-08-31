@@ -54,7 +54,7 @@
 	- 참조 : https://m.blog.naver.com/heartflow89/221074331956
 
 	- 샘플데이터 베이스
-		> 파일 다운로드 및 압축해제 : https://github.com/ByungjooPark/PHPFULLSTACK.git 
+		> 파일 다운로드 및 압축해제
 			* DataBase > Sample > employees.zip
 		> cmd 관리자권한으로 실행
 		> "employees.sql"이 있는 디렉토리까지 이동 : cd 커멘드 이용
