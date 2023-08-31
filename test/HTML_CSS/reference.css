@@ -1,0 +1,99 @@
+/* common */
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+html, body {
+    scroll-behavior: smooth; /* 스크롤 부드럽게 설정 */
+    padding: 0;
+    margin: 0;
+	font-family: 'Sedgwick Ave Display', cursive;
+}
+a {
+    background-color: goldenrod;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 0.25rem;
+    text-align: center;
+    display: inline-block;
+    padding: 1rem;
+    margin-top: 0.75rem;
+	font-size: 1.5rem;
+}
+a:hover {
+    opacity: 0.6; /* 불투명도 0.6 적용 */
+    transition: all 1s; /* 모든 속성에 0.5초 딜레이로 적용 */
+}
+
+/* header */
+h1 {
+    font-size: 4rem;
+    padding-bottom: 1rem;
+}
+header {
+	background: url('./img/img_1.jpg') center;
+	background-size: cover;
+    padding: 4rem 2rem;    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));/* 너비의 최소값과 최대값을 주고 auto-fit을 주어, 자동으로 컬럼 수를 조절 */
+    align-items: center;
+    color: #ffffff;
+}
+header>div>p {
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+header>div>a {
+    padding: 1rem;
+    margin-top: 0.75rem;
+}
+
+/* main */
+main {
+	padding: 2rem;
+	padding-bottom: 6rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+	grid-gap: 1rem;
+}
+article {
+	width: 100%;
+    border: 1px solid #E2E2E2;
+    border-radius: 0.5rem;
+	padding: 1rem;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+article>figure {
+    margin: 0;
+	position: relative;
+}
+article>figure>img {
+	width: 100%;
+}
+article>figure>figcaption {
+	background-color: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	color: #ffffff;
+}
+article>figure>figcaption>h3 {
+	padding: 0 1rem;
+}
+article>a {
+	font-size: 1rem;
+}
+
+/* footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 0.75rem;
+    text-align: center;
+    font-size: 0.75rem;
+	color: #ffffff;
+}
