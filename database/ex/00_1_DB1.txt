@@ -61,12 +61,8 @@
 		> mariaDB접속 : "mysql -u root -p" 입력 후 패스워드 입력해서 
 		> sql 실행 : "source employees.sql;" 입력
 		> employees DB 확인 : show database;
-		> 커밋하기 : COMMIT; 
-		> mariaDB접속 해제 : exit 
-
-	- autocommit설정 해제
-		> mariaDB설치 위치 > data > my.ini
-			[mysqld]에 autocommit=0 추가
+		> 커밋하기 : COMMIT;
+		> mariaDB접속 해제 : exit
 
 **********************************
 ****** 이하 필요에 따라 참조 ******
