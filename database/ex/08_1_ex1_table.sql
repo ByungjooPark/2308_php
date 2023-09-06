@@ -53,17 +53,55 @@
 -- 	,CONSTRAIN UNIQUE명 UNIQUE (컬럼) -- UNIQUE설정
 -- 	,CONSTRAIN CHECK명 CHECK (조건) -- CHECK설정
 -- );
+CREATE TABLE members (
+	mem_no INT PRIMARY KEY AUTO_INCREMENT
+	,id VARCHAR(30) NOT NULL
+	,mem_name VARCHAR(30) NOT NULL
+	,addr VARCHAR(100) NOT NULL
+	,CONSTRAINT uk_members_mem_no UNIQUE KEY(id)
+);
+
+CREATE TABLE points (
+	mem_no INT PRIMARY KEY
+	,pt INT NOT NULL DEFAULT(0)
+	,CONSTRAINT fk_points_mem_no FOREIGN KEY(mem_no)
+		REFERENCES members(mem_no) ON DELETE CASCADE
+);
+CREATE TABLE products(
+	product_no INT PRIMARY KEY
+	,product_name VARCHAR(50) NOT NULL
+	,product_price INT NOT NULL
+);
+CREATE TABLE orders (
+	order_no INT PRIMARY KEY
+	,mem_no INT NOT NULL
+	,product_no INT NOT NULL
+	,product_cnt INT NOT NULL
+	,total_pay INT NOT NULL
+	,CONSTRAINT fk_orders_mem_no FOREIGN KEY(mem_no)
+		REFERENCES members(mem_no) ON DELETE CASCADE
+	,CONSTRAINT fk_orders_product_no FOREIGN KEY(product_no)
+		REFERENCES products(product_no) ON DELETE CASCADE
+);
 
 -- 2. 테이블 변경
 -- 	- 컬럼 추가
 -- 		ALTER TABLE 테이블명 ADD COLUMN 컬럼 데이터타입;
 -- 	- 컬럼의 데이터타입 변경
--- 		ALTER TABLE 테이블명 ALTER COLUMN 컬럼 데이터타입;
+-- 		ALTER TABLE 테이블명 MODIFY COLUMN 컬럼 데이터타입;
 -- 	- 컬럼 삭제
 -- 		ALTER TABLE 테이블명 DROP COLUMN 컬럼;
+ALTER TABLE members ADD COLUMN age INT NOT NULL;
+ALTER TABLE members MODIFY COLUMN mem_name VARCHAR(50) NOT NULL;
+ALTER TABLE members DROP COLUMN age;
 
 -- 3. 테이블 삭제
 -- 	DROP TABLE 테이블1 [, 테이블2, 테이블3 ...];
+DROP TABLE orders;
 
 -- 4. 테이블의 데이터 삭제
 -- 	TRUNCATE TABLE 테이블;
+DELETE FROM members WHERE mem_no = 1;
+ROLLBACK;
+TRUNCATE TABLE members;
+
