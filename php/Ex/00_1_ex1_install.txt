@@ -1,0 +1,98 @@
+1. PHP 설치
+	1-1. 다운로드 페이지 접속
+		https://windows.php.net/download
+	
+	1-2. 각 설치 환경에 맞는 파일 다운로드
+		** 주의 : 실습은 Apache 웹서버를 사용할 것이므로 "Thread Safe" 버전을 받을 것 **
+		(VS16 x64 Thread Safe의 zip파일)
+	
+	1-3. "C:\php-8.2.10"에 압축 풀기
+		- 최종적으로 php.exe가 "C:\php-8.2.10"에 배치됩니다.
+
+	1-4. php.ini를 작성
+		- "C:\php-8.2.10\"아래의 php.ini-development를 복사하여 "php.ini"로 작성
+		- 198행 : short_open_tag 설정 (php구분 태그인 <?php ?> 를 <? ?>로 작성 가능)
+			short_open_tag = On
+		- 767, 768행 : 주석해제 및 설정
+			On windows:
+			extension_dir = "PHP설치경로/ext"
+		- 936행 : extension 관련 설정 주석해제 (필요에 따라 주석 제거)
+			extension=mbstring
+		- 977행 : 시간대 설정
+			date.timezone = Asia/Seoul
+	
+	1-5. 환경변수 설정
+		- 윈도우 검색창에 "환경 변수"를 입력해서 "시스템 환경 변수 편집"에 진입
+		- "환경 변수" 클릭
+		- 시스템 변수 > 새로 만들기 > 아래 정보 입력
+			변수이름 : PHP
+			변수 값 : C:\php-8.2.10 (PHP 설치한 폴더 경로)
+		- 시스템 변수 > Path 선택 > 편집
+		- 새로 만들기 > %PHP% 입력 > 확인
+		- 열려있는 모든 창 확인
+		- 명령 프롬프트(CMD)를 열고 아래 명령어를 입력
+			php -v 
+		- php 버전이 정상적으로 출력되면 설치완료
+
+2.  Apache 설치
+	2-1. 다운로드 페이지 접속
+		https://www.apachelounge.com/download/
+
+	2-2. 각 설치 환경에 맞는 파일 다운로드
+		(실습에서는 "Apache 2.4.56 Win64"를 다운로드)
+	
+	2-3. "C:\Apache24"에 압축 풀기
+		- 최종적으로 conf폴더가 "C:\Apache24"에 배치됩니다.
+	
+	2-4. httpd.conf 설정
+		- "C:\Apache24\conf\"아래의 httpd.conf를 수정
+		- 37행 : "Define SRVROOT"를 Apache24를 설치했던 경로로 변경(순서대로 설치했다면 변경 불필요)
+		- 227행 : "ServerName" 주석 해제
+		- 285행 : index페이지 설정 (PHP연동 관련 설정)
+			<IfModule dir_module>
+				DirectoryIndex index.php index.html
+			</IfModule>
+		- 가장 마지막줄에 아래 설정 추가 (PHP연동 관련 설정)
+			PHPIniDir "C:/php-8.2.10"
+			LoadModule php_module "C:/php-8.2.10/php8apache2_4.dll"
+			AddHandler application/x-httpd-php .php
+			AddType application/x-httpd-php .php .html
+		- 저장
+	
+	2-5. 명령 프롬프트(CMD)를 열고 아래 명령어를 입력
+		- 아파치 httpd.exe 가 있는 위치로 이동
+			위 순서대로 했을 시 경로는 "C:\Apache24\bin\"
+		- httpd -k install 
+		- 설치 완료후 Apache 기동
+			net start apache2.4
+		- 브라우저에서 localhost에 접속
+			"It works!"가 뜨면 Apache설치 완료
+
+	2-6. php 연동 확인
+		- "\Apache24\htodcs"에 phpinfo.php를 배치
+			** phpinfo.php의 내용 **
+				<?php
+					phpinfo();
+				?>
+		- 브라우저에서 localhost/phpinfo.php에 접속
+			php화면이 뜨면 연동 완료
+
+3. VS Code 확장프로그램 설치
+	3-1. PHP IntelliSense
+		자동완성 같은 편의 기능 제공
+	
+	3-2. PHP Debug
+		디버깅 기능을 지원
+
+4. 디버깅 설정
+	4-1. localhost/phpinfo.php 에 접속
+		- 전체 선택(컨트롤 + a) 후, 복사 
+	
+	4-2. https://xdebug.org/wizard에 접속해서 [4-1]의 내용 붙여넣기하고
+		"Analyse my phpinfo() output" 버튼 클릭
+	
+	4-3. Instructions의 순서대로 진행
+
+5. PHP 관련 정보
+	5-1. 공식 사이트
+		https://www.php.net/
