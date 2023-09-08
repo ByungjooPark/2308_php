@@ -85,7 +85,7 @@
 		디버깅 기능을 지원
 
 4. 디버깅 설정
-	4-1. localhost/phpinfo.php 에 접속
+	4-1. localhost/index.php 에 접속
 		- 전체 선택(컨트롤 + a) 후, 복사 
 	
 	4-2. https://xdebug.org/wizard에 접속해서 [4-1]의 내용 붙여넣기하고
