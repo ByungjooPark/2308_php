@@ -17,11 +17,21 @@ function my_all_sum(...$items){
 
 $str = "34215";
 function my_test(string $str) {
-	$len = mb_strlen($str);
-	$sum = 0;
-	for($idx = 0; $idx <= $len - 1; $idx++) {
-		$sum += (int)mb_substr($str, $idx, 1);	
-	}
-	return $sum;
+	// 문자열을 하나씩 잘라서 더하는 방법
+	// $len = mb_strlen($str);
+	// for($idx = 0; $idx <= $len - 1; $idx++) {
+	// 	$sum += (int)mb_substr($str, $idx, 1);	
+	// }
+
+	// 문자열을 배열로 만든 후 처리 하는 방법
+	// $arr = str_split($str);
+	// $sum = 0;
+	// foreach($arr as $val) {
+	// 	$sum += $val;
+	// }
+
+	// php 함수 이용해서 배열의 값을 다 더하는 방법
+	return array_sum($arr);
 }
+
 echo my_test($str);
