@@ -97,15 +97,15 @@ $arr2 = [
 			]
 ];
 
-// echo $arr[2], "\n";
-// echo $arr2["key2"]["key4"];
-// print_r($arr2["key2"]);
-// var_dump($arr2["key2"]);
+echo $arr[2], "\n";
+echo $arr2["key2"]["key4"];
+print_r($arr2["key2"]);
+var_dump($arr2["key2"]);
 
-// foreach( $arr2["key2"] as $key => $val) {
-// 	echo "{$key} : {$val}\n";
-// }
+foreach( $arr2["key2"] as $key => $val) {
+	echo "{$key} : {$val}\n";
+}
 
-// define("MSG", "에러가 발생했습니다. (CODE : %s)");
-// $msg = sprintf(MSG, "E01");
-// echo $msg;
+define("MSG", "에러가 발생했습니다. (CODE : %s)");
+$msg = sprintf(MSG, "E01");
+echo $msg;
