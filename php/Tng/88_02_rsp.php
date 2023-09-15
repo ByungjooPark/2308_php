@@ -76,8 +76,12 @@ switch( $result ) {
 printf($msg, $result_str, rsp_num_to_str($user), rsp_num_to_str($computer));
 
 
-// rsp_num_to_str(int $num)
-// 가위바위보 숫자를 문자로 변환
+// ------------------------------
+// 함수명	: rsp_num_to_str(int $num)
+// 설명		: 가위바위보 숫자를 문자로 변환
+// 파라미터	: int $num	0 || 1 || 2
+// 리턴		: string	가위 || 바위 || 보
+// ------------------------------
 function rsp_num_to_str(int $num) {
 	$result = "";
 	// 가위:0, 바위:1, 보:2
