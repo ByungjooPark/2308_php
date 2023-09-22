@@ -4,7 +4,7 @@ define("FILE_HEADER", ROOT."header.php"); // 헤더 패스
 require_once(ROOT."lib/lib_db.php"); // DB관련 라이브러리
 
 // POST로 request가 왔을 때 처리
-$http_method = $_SERVER["REQUEST_METHOD"];
+$http_method = $_SERVER["REQUEST_METHOD"]; // Method 확인
 if($http_method === "POST") {
 	try {
 		$arr_post = $_POST;
