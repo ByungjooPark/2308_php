@@ -33,7 +33,6 @@ try {
 			throw new Exception("DB Error : PDO Select_id Count, ".count($result));
 		}
 		$item = $result[0];
-
 	} else {
 		// POST Method의 경우
 		// 게시글 수정을 위헤 파라미터 셋팅
@@ -80,19 +79,19 @@ try {
 	?>
 	<form action="/mini_board/src/update.php" method="post">
 		<table>
-			<input type="hidden" name="id" value="<?php echo $id ?>">
-			<input type="hidden" name="page" value="<?php echo $page ?>">
+			<input type="hidden" name="id" value="<?php echo $id; ?>">
+			<input type="hidden" name="page" value="<?php echo $page; ?>">
 			<tr>
 				<th>글 번호</th>
 				<td><?php echo $item["id"]; ?></td>
 			</tr>
 			<tr>
 				<th>제목</th>
-				<td><input type="text" name="title" value="<?php echo $item["title"] ?>"></td>
+				<td><input type="text" name="title" value="<?php echo $item["title"]; ?>"></td>
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td><textarea name="content" id="content" cols="30" rows="10"><?php echo $item["content"] ?></textarea></td>
+				<td><textarea name="content" id="content" cols="30" rows="10"><?php echo $item["content"]; ?></textarea></td>
 			</tr>
 		</table>
 		<button type="submit">수정확인</button>
