@@ -78,6 +78,6 @@ try {
 	</table>
 	<a href="/mini_board/src/update.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">수정페이지로</a>
 	<a href="/mini_board/src/list.php/?page=<?php echo $page; ?>">취소</a>
-	<a href="#">삭제</a>
+	<a href="/mini_board/src/delete.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">삭제</a>
 </body>
 </html>
