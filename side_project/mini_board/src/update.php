@@ -1,11 +1,10 @@
 <?php
 define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/"); // 웹서버 root 패스 생성
 define("FILE_HEADER", ROOT."header.php"); // 헤더 패스
+define("ERROR_MSG_PARAM", "Parameter Error : %s"); // 파라미터 에러 메세지
 require_once(ROOT."lib/lib_db.php"); // DB관련 라이브러리
 
 $conn = null; // DB 연결용 변수
-$id = isset($_GET["id"]) ? $_GET["id"] : $_POST["id"]; // id 셋팅
-$page = isset($_GET["page"]) ? $_GET["page"] : $_POST["page"]; // page 셋팅
 $http_method = $_SERVER["REQUEST_METHOD"]; // Method 확인
 
 try {
@@ -17,6 +16,21 @@ try {
 
 	if($http_method === "GET") {
 		// GET Method의 경우
+			
+		// 파라미터 획득
+		$id = isset($_GET["id"]) ? $_GET["id"] : ""; // id 셋팅
+		$page = isset($_GET["page"]) ? $_GET["page"] : ""; // page 셋팅
+
+		if($id === "") {
+			$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "id");
+		}
+		if($page === "") {
+			$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "page");
+		}
+		if(count($arr_err_msg) >= 1) {
+			throw new Exception(implode("<br>", $arr_err_msg));
+		}
+
 		// 게시글 데이터 조회를 위한 파라미터 셋팅
 		$arr_param = [
 			"id" => $id
@@ -34,7 +48,29 @@ try {
 		}
 		$item = $result[0];
 	} else {
-		// POST Method의 경우
+		// POST Method의 경우	
+		// 파라미터 획득
+		$id = isset($_POST["id"]) ? $_POST["id"] : ""; // id 셋팅
+		$page = isset($_POST["page"]) ? $_POST["page"] : ""; // page 셋팅
+		$title = isset($_POST["title"]) ? $_POST["title"] : ""; // title 셋팅
+		$content = isset($_POST["content"]) ? $_POST["content"] : ""; // content 셋팅
+
+		if($id === "") {
+			$arr_err_msg[] = "Parameter Error : id";
+		}
+		if($page === "") {
+			$arr_err_msg[] = "Parameter Error : page";
+		}
+		if($title === "") {
+			$arr_err_msg[] = "Parameter Error : title";
+		}
+		if($content === "") {
+			$arr_err_msg[] = "Parameter Error : content";
+		}
+		if(count($arr_err_msg) >= 1) {
+			throw new Exception(implode("<br>", $arr_err_msg));
+		}
+
 		// 게시글 수정을 위헤 파라미터 셋팅
 		$arr_param = [
 			"id" => $id
