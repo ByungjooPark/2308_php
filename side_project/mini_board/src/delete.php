@@ -2,12 +2,16 @@
 // 설정 정보
 define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/"); // 웹서버 root 패스 생성
 define("FILE_HEADER", ROOT."header.php"); // 헤더 패스
+define("ERROR_MSG_PARAM", "Parameter Error : %s"); // 파라미터 에러 메세지
 require_once(ROOT."lib/lib_db.php"); // DB관련 라이브러리
+
+$arr_err_msg = []; // 에러 메세지 저장용
 
 try {
 	// 2. DB Connect
 	// 2-1. connection 함수 호출
 	$conn = null; // PDO 객체 변수
+
 	if(!my_db_conn($conn)) {
 		// 2-2. 예외 처리
 		throw new Exception("DB Error : PDO Instance");
@@ -21,12 +25,12 @@ try {
 		// 3-1-1. 파라미터에서 id, page 획득
 		$id = isset($_GET["id"]) ? $_GET["id"] : "";
 		$page = isset($_GET["page"]) ? $_GET["page"] : "";
-		$arr_err_msg = [];
+
 		if($id === "") {
-			$arr_err_msg[] = "Parameter Error : id";
+			$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "id");
 		}
 		if($page === "") {
-			$arr_err_msg[] = "Parameter Error : page";
+			$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "page");
 		}
 		if(count($arr_err_msg) >= 1) {
 			throw new Exception(implode("<br>", $arr_err_msg));
@@ -50,9 +54,8 @@ try {
 		// 3-2. POST일 경우 (삭제 페이지의 동의 버튼 클릭)
 		// 3-2-1. 파라미터에서 id 획득
 		$id = isset($_POST["id"]) ? $_POST["id"] : "";
-		$arr_err_msg = [];
 		if($id === "") {
-			$arr_err_msg[] = "Parameter Error : id";
+			$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "id");
 		}
 		if(count($arr_err_msg) >= 1) {
 			throw new Exception(implode("<br>", $arr_err_msg));
@@ -101,8 +104,8 @@ try {
 	<?php
 	require_once(FILE_HEADER);
 	?>
-	<main>
-		<table>
+	<main class="container">
+		<table class="table-striped">
 			<caption>
 				삭제하면 영구적으로 복구 할 수 없습니다.
 				<br>
@@ -110,29 +113,30 @@ try {
 				<br><br>
 			</caption>
 			<tr>
-				<th>게시글 번호</th>
-				<td><?php echo $item["id"] ?></td>
+				<th class="radius-left">게시글 번호</th>
+				<td class="radius-right"><?php echo $item["id"] ?></td>
 			</tr>
 			<tr>
-				<th>작성일</th>
-				<td><?php echo $item["create_at"] ?></td>
+				<th class="radius-left">작성일</th>
+				<td class="radius-right"><?php echo $item["create_at"] ?></td>
 			</tr>
 			<tr>
-				<th>제목</th>
-				<td><?php echo $item["title"] ?></td>
+				<th class="radius-left">제목</th>
+				<td class="radius-right"><?php echo $item["title"] ?></td>
 			</tr>
 			<tr>
-				<th>내용</th>
-				<td><?php echo $item["content"] ?></td>
+				<th class="radius-left">내용</th>
+				<td class="radius-right"><?php echo $item["content"] ?></td>
 			</tr>
 		</table>
+
+		<section class="button">
+			<form action="/mini_board/src/delete.php" method="post">
+				<input type="hidden" name="id" value="<?php echo $id; ?>">
+				<button class="button_a" type="submit">동의</button>
+				<a class="button_a" href="/mini_board/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">취소</a>
+			</form>
+		</section>
 	</main>
-	<section>
-		<form action="/mini_board/src/delete.php" method="post">
-			<input type="hidden" name="id" value="<?php echo $id; ?>">
-			<button type="submit">동의</button>
-			<a href="/mini_board/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">취소</a>
-		</form>
-	</section>
 </body>
 </html>

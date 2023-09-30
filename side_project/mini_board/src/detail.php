@@ -1,23 +1,32 @@
 <?php
 define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/"); // 웹서버 root 패스 생성
 define("FILE_HEADER", ROOT."header.php"); // 헤더 패스
+define("ERROR_MSG_PARAM", "Parameter Error : %s"); // 파라미터 에러 메세지
 require_once(ROOT."lib/lib_db.php"); // DB관련 라이브러리
 
 $id = ""; // 게시글 id
 $conn = null; // DB Connect
+$arr_err_msg = []; // 에러 메세지 저장용
 
 try {
-	// id 확인
-	if(!isset($_GET["id"]) || $_GET["id"] === "") {
-		throw new Exception("Parameter ERROR : No id"); // 강제 예외 발생 : Parameter ERROR
-	}
-
-	$id = $_GET["id"]; // id 셋팅
-	$page = $_GET["page"]; // page 셋팅
 	// DB 연결
 	if(!my_db_conn($conn)) {
 		// DB Instance 에러
 		throw new Exception("DB Error : PDO Instance");
+	}
+
+	// 파라미터 획득
+	$id = isset($_GET["id"]) ? $_GET["id"] : ""; // id 셋팅
+	$page = isset($_GET["page"]) ? $_GET["page"] : ""; // page 셋팅
+
+	if($id === "") {
+		$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "id");
+	}
+	if($page === "") {
+		$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "page");
+	}
+	if(count($arr_err_msg) >= 1) {
+		throw new Exception(implode("<br>", $arr_err_msg));
 	}
 
 	// 게시글 데이터 조회
@@ -33,7 +42,7 @@ try {
 		throw new Exception("DB Error : PDO Select_id");
 	} else if(!(count($result) === 1)) {
 		// 게시글 조회 count 에러
-		throw new Exception("DB Error : PDO Select_id count, ".count($result));
+		throw new Exception("DB Error : PDO Select_id count");
 	}
 	$item = $result[0];
 } catch(Exception $e) {
@@ -57,27 +66,31 @@ try {
 	<?php
 		require_once(FILE_HEADER);
 	?>
-	<table>
-		<tr>
-			<th>글 번호</th>
-			<td><?php echo $item["id"]; ?></td>
-		</tr>
-		<tr>
-			<th>제목</th>
-			<td><?php echo $item["title"]; ?>
-			</td>
-		</tr>
-		<tr>
-			<th>내용</th>
-			<td><?php echo $item["content"]; ?></td>
-		</tr>
-		<tr>
-			<th>작성일자</th>
-			<td><?php echo $item["create_at"]; ?></td>
-		</tr>
-	</table>
-	<a href="/mini_board/src/update.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">수정페이지로</a>
-	<a href="/mini_board/src/list.php/?page=<?php echo $page; ?>">취소</a>
-	<a href="/mini_board/src/delete.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">삭제</a>
+	<main class="container">
+		<table class="table-striped">
+			<tr>
+				<th class="radius-left">게시글 번호</th>
+				<td class="radius-right"><?php echo $item["id"]; ?></td>
+			</tr>
+			<tr>
+				<th class="radius-left">제목</th>
+				<td class="radius-right"><?php echo $item["title"]; ?>
+				</td>
+			</tr>
+			<tr>
+				<th class="radius-left">내용</th>
+				<td class="radius-right"><?php echo $item["content"]; ?></td>
+			</tr>
+			<tr>
+				<th class="radius-left">작성일자</th>
+				<td class="radius-right"><?php echo $item["create_at"]; ?></td>
+			</tr>
+		</table>
+		<section class="button">
+			<a class="button_a" href="/mini_board/src/update.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">수정</a>
+			<a class="button_a" href="/mini_board/src/list.php/?page=<?php echo $page; ?>">취소</a>
+			<a class="button_a" href="/mini_board/src/delete.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">삭제</a>
+		</section>
+	</main>
 </body>
 </html>

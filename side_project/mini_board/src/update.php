@@ -6,6 +6,7 @@ require_once(ROOT."lib/lib_db.php"); // DB관련 라이브러리
 
 $conn = null; // DB 연결용 변수
 $http_method = $_SERVER["REQUEST_METHOD"]; // Method 확인
+$arr_err_msg = []; // 에러 메세지 저장용
 
 try {
 	// DB 연결
@@ -16,7 +17,7 @@ try {
 
 	if($http_method === "GET") {
 		// GET Method의 경우
-			
+
 		// 파라미터 획득
 		$id = isset($_GET["id"]) ? $_GET["id"] : ""; // id 셋팅
 		$page = isset($_GET["page"]) ? $_GET["page"] : ""; // page 셋팅
@@ -48,7 +49,7 @@ try {
 		}
 		$item = $result[0];
 	} else {
-		// POST Method의 경우	
+		// POST Method의 경우
 		// 파라미터 획득
 		$id = isset($_POST["id"]) ? $_POST["id"] : ""; // id 셋팅
 		$page = isset($_POST["page"]) ? $_POST["page"] : ""; // page 셋팅
@@ -56,16 +57,16 @@ try {
 		$content = isset($_POST["content"]) ? $_POST["content"] : ""; // content 셋팅
 
 		if($id === "") {
-			$arr_err_msg[] = "Parameter Error : id";
+			$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "id");
 		}
 		if($page === "") {
-			$arr_err_msg[] = "Parameter Error : page";
+			$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "page");
 		}
 		if($title === "") {
-			$arr_err_msg[] = "Parameter Error : title";
+			$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "title");
 		}
 		if($content === "") {
-			$arr_err_msg[] = "Parameter Error : content";
+			$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "content");
 		}
 		if(count($arr_err_msg) >= 1) {
 			throw new Exception(implode("<br>", $arr_err_msg));
@@ -113,25 +114,29 @@ try {
 	<?php
 		require_once(FILE_HEADER);
 	?>
-	<form action="/mini_board/src/update.php" method="post">
-		<table>
-			<input type="hidden" name="id" value="<?php echo $id; ?>">
-			<input type="hidden" name="page" value="<?php echo $page; ?>">
-			<tr>
-				<th>글 번호</th>
-				<td><?php echo $item["id"]; ?></td>
-			</tr>
-			<tr>
-				<th>제목</th>
-				<td><input type="text" name="title" value="<?php echo $item["title"]; ?>"></td>
-			</tr>
-			<tr>
-				<th>내용</th>
-				<td><textarea name="content" id="content" cols="30" rows="10"><?php echo $item["content"]; ?></textarea></td>
-			</tr>
-		</table>
-		<button type="submit">수정확인</button>
-		<a href="/mini_board/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">수정취소</a>
-	</form>
+	<main class="container">
+		<form action="/mini_board/src/update.php" method="post">
+			<table class="table-striped">
+				<input type="hidden" name="id" value="<?php echo $id; ?>">
+				<input type="hidden" name="page" value="<?php echo $page; ?>">
+				<tr>
+					<th class="radius-left">글 번호</th>
+					<td class="radius-right"><?php echo $item["id"]; ?></td>
+				</tr>
+				<tr>
+					<th class="radius-left">제목</th>
+					<td class="radius-right"><input type="text" name="title" value="<?php echo $item["title"]; ?>"></td>
+				</tr>
+				<tr>
+					<th class="radius-left">내용</th>
+					<td class="radius-right"><textarea name="content" id="content" cols="30" rows="10"><?php echo $item["content"]; ?></textarea></td>
+				</tr>
+			</table>
+			<section class="button">
+				<button class="button_a" type="submit">완료</button>
+				<a class="button_a" href="/mini_board/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">취소</a>
+			</section>
+		</form>
+	</main>
 </body>
 </html>
