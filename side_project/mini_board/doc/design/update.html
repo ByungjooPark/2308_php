@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./css/common.css">
-	<title>작성 페이지</title>
+	<title>수정 페이지</title>
 </head>
 <body>
 	<header>
@@ -26,24 +26,20 @@
 		<form action="" method="">
 			<table class="table-striped">
 				<tr>
-					<th class="radius-left">
-						<label for="title">제목</label>
-					</th>
-					<td class="radius-right">
-						<input type="text" name="title" id="title">
-					</td>
+					<th class="radius-left">글 번호</th>
+					<td class="radius-right">3</td>
 				</tr>
 				<tr>
-					<th class="radius-left">
-						<label  for="contents">내용</label>
-					</th>
-					<td class="radius-right">
-					<textarea rows="6" cols="10" name="content" id="contents"></textarea>
-					</td>
+					<th class="radius-left">제목</th>
+					<td class="radius-right"><input type="text" name="title" value="게시글 제목 1"></td>
+				</tr>
+				<tr>
+					<th class="radius-left">내용</th>
+					<td class="radius-right"><textarea name="content" id="content" cols="30" rows="10">게시글 내용 1</textarea></td>
 				</tr>
 			</table>
 			<section class="button">
-				<button class="button_a" type="submit">작성</button>
+				<button class="button_a" type="submit">완료</button>
 				<a class="button_a" href="#">취소</a>
 			</section>
 		</form>

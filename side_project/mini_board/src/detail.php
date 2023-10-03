@@ -74,8 +74,7 @@ try {
 			</tr>
 			<tr>
 				<th class="radius-left">제목</th>
-				<td class="radius-right"><?php echo $item["title"]; ?>
-				</td>
+				<td class="radius-right"><?php echo $item["title"]; ?></td>
 			</tr>
 			<tr>
 				<th class="radius-left">내용</th>
