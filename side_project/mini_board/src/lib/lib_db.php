@@ -31,6 +31,7 @@ function my_db_conn( &$conn ) {
 		$conn = new PDO($db_dns, $db_user, $db_pw, $db_options);
 		return true;
 	} catch (Exception $e) {
+		echo $e->getMessage(); // Exception 메세지 출력
 		$conn = null; // DB 파기
 		return false;
 	}
@@ -79,6 +80,7 @@ function db_select_boards_paging(&$conn, &$arr_param) {
 		$result = $stmt->fetchAll();
 		return $result; // 정상 : 쿼리 결과 리턴
 	} catch(Exception $e) {
+		echo $e->getMessage(); // Exception 메세지 출력
 		return false; // 예외발생 : flase 리턴
 	}
 }
@@ -105,6 +107,7 @@ function db_select_boards_cnt(&$conn) {
 
 			return (int)$result[0]["cnt"]; // 정상 : 쿼리 결과 리턴
 		} catch(Exception $e) {
+			echo $e->getMessage(); // Exception 메세지 출력
 			return false; // 예외발생 : flase 리턴
 		}
 }
