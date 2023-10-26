@@ -5,7 +5,7 @@
 // ------------------
 // 2. 요소 선택
 // ------------------
-// 	2-1. 고유한 ID로 요소를 요소를 선택
+// 	2-1. 고유한 ID로 요소를 선택
 const TITLE = document.getElementById('title');
 TITLE.style.color = 'blue';
 
@@ -54,3 +54,64 @@ TITLE.style.color = 'red';
 TITLE.classList.add('class1', 'class2', 'class3');
 TITLE.classList.remove('class1', 'class3');
 
+
+// ------------------
+// 5. 새로운 요소 생성
+// ------------------
+// 요소 만들기
+const LI = document.createElement('li');
+LI.innerHTML = "글글글글";
+
+// 삽입할 부모 요소 접근
+const UL = document.querySelector('#ul');
+
+// 부모요소의 가장 마지막 위치에 삽입
+UL.appendChild(LI);
+
+// 요소를 특정 위치에 삽입하는 방법
+const SPACE = document.querySelector('ul li:nth-child(3)');
+UL.insertBefore(LI, SPACE);
+
+// 해당 요소를 지우는 방법
+// LI.remove();
+
+
+// 1. 사과게임 위에 장기를 넣어주세요.
+const LIJANGGI = document.createElement('li');
+LIJANGGI.innerHTML = '장기';
+const LIAPPLE = document.getElementById('apple');
+UL.insertBefore(LIJANGGI, LIAPPLE);
+
+// 2. 어메이징브릭에 베이지 배경색을 넣어주세요.
+const LIAM = document.querySelector('ul li:last-child');
+LIAM.style.backgroundColor = 'beige';
+
+// 3. 리스트에서 짝수는 빨간색글씨, 홀수는 파랑색글씨로 만들어주세요.
+const RB = document.querySelectorAll('ul li');
+
+// 방법 1
+for(let i = 0; i < RB.length; i++){
+	// if(i % 2 === 0){
+	// 	RB[i].style.color= 'blue';
+	// } else if(i % 2 === 1){
+	// 	RB[i].style.color= 'red';
+	// }
+	RB[i].style.color = i % 2 === 0 ? 'blue' : 'red';
+}
+
+// 방법 2
+// const test1 = document.querySelectorAll('ul li:nth-child(even)');
+// const test2 = document.querySelectorAll('ul li:nth-child(odd)');
+// for(let i = 0; i < test1.length; i++){
+// 	test1[i].style.color= 'red';
+// }
+// for(let i = 0; i < test2.length; i++){
+// 	test2[i].style.color= 'blue';
+// }
+
+// 6. 참조
+// 	DOM 속성
+// 	https://developer.mozilla.org/en/docs/Web/API/Element
+
+// 	Document
+//  https://developer.mozilla.org/ko/docs/Web/API/Document
