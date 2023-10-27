@@ -1,0 +1,21 @@
+#wrap{
+	position: relative;
+	top: 600px;
+	left: 400px;
+	width: 150px;
+	height: 150px;
+	/*background: #ccc;*/
+	background: blue;
+}
+#box{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100px;
+	height: 100px;
+	transform: translate(-50%,-50%);
+	/*background: yellow;*/
+}
+.on{
+	background: beige;
+}
