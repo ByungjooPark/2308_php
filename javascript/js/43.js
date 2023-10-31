@@ -24,6 +24,14 @@
 	JSON.stringify( obj ) : Object를 JSON 포맷의 String으로 변환(Serializing)해주는 메소드
 	JSON.parse( json ) : JSON 포맷의 String을 Object로 변환(Deserializing)해주는 메소드
 
+	4. API 예제 사이트
+		https://picsum.photos/
+
+	// ----------  참조  -----------
+	//1. 직렬화(Serialization)
+	// 	데이터 구조나 오브젝트 상태를 동일 혹은 다른 컴퓨터 환경에 저장하고,
+	// 	나중에 재구성 할 수 있는 포맷으로 변환하는 과정
+
 // XML
 <xml>
 	<data>
@@ -42,3 +50,68 @@
 
 */
 
+// const MY_URL = "https://picsum.photos/v2/list?page=2&limit=5";
+const BTN_API = document.querySelector('#btn-api');
+BTN_API.addEventListener('click', my_fetch);
+
+function my_fetch() {
+	const INPUT_URL = document.querySelector('#input-url');
+
+	fetch(INPUT_URL.value.trim())
+	.then( response => {
+		if( response.status >= 200 && response.status < 300 ){
+			return response.json();
+		} else {
+			throw new Error('에러에러');
+		}
+	} )
+	.then( data => makeImg(data) )
+	.catch( error => console.log(error) );
+}
+
+function makeImg(data) {
+	data.forEach( item => {
+		const NEW_IMG = document.createElement('img');
+		const DIV_IMG = document.querySelector('#div-img');
+
+		NEW_IMG.setAttribute('src', item.download_url);
+		NEW_IMG.style.width = '200px';
+		NEW_IMG.style.height = '200px';
+		DIV_IMG.appendChild(NEW_IMG);
+	});
+}
+
+const BTN_CLEAR = document.querySelector('#btn-clear');
+BTN_CLEAR.addEventListener('click', imgClear);
+
+function imgClear() {
+	// ---- 방법 1
+	// window.location.reload(); // 51 / 100
+	// ---- 방법 1
+
+	// ---- 방법 2
+	// const IMG = document.querySelectorAll('img');
+
+	// for(let i = 0; i < IMG.length; i++) {
+	// 	IMG[i].remove();
+	// } // 80 / 100
+	// ---- 방법 2
+
+	
+	// ---- 방법 3
+	// const DIV_IMG = document.querySelector('#div-img');
+	// DIV_IMG.remove();
+	// ---- 방법 3 // 20 / 100
+
+
+	// ---- 방법 4
+	// const DIV_IMG = document.querySelector('#div-img');
+	// DIV_IMG.replaceChildren();
+	// ---- 방법 4 90/100
+
+	// ---- 방법 5
+	const DIV_IMG = document.querySelector('#div-img');
+	DIV_IMG.innerHTML = "";
+	// ---- 방법 5 90/100
+
+}
