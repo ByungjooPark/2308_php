@@ -64,7 +64,7 @@ function my_fetch() {
 		} else {
 			throw new Error('에러에러');
 		}
-	} )
+	})
 	.then( data => makeImg(data) )
 	.catch( error => console.log(error) );
 }
@@ -114,4 +114,23 @@ function imgClear() {
 	DIV_IMG.innerHTML = "";
 	// ---- 방법 5 90/100
 
+}
+
+
+
+// fetch 2번째 아규먼트 셋팅 방법
+function infinityLoop() {
+	let apiUrl = "http://112.222.157.156:6001/03_insert.php"
+	let init = {
+		method: "POST"
+		,body: {
+			title: "아아아아"
+			,content: "오오오오"
+			,em_id: "2"
+		}
+	};
+
+	fetch(apiUrl, init)
+	.then( response => console.log(response) )
+	.catch( error => console.log(error) );
 }

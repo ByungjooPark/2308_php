@@ -23,10 +23,24 @@ function PRO3(str, ms) {
 // 	.then( () => PRO3('C', 1000))
 // });
 
+setTimeout(() => {
+	console.log('A');
+	setTimeout( () => {
+		console.log('B');
+		setTimeout(() => {
+			console.log('C')
+		}, 1000);
+	}, 2000);
+}, 3000);
+
+PRO3('A', 3000)
+.then( () => PRO3('B', 2000) )
+.then( () => PRO3('C', 1000) );
+
 async function test() {
 	await PRO3('A', 5000);
 	await PRO3('B', 4000);
-	// await PRO3('C', 1000);
+	await PRO3('C', 1000);
 }
 
 
