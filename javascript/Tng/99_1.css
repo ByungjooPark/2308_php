@@ -1,0 +1,51 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+header {
+	background-color: #000;
+	color: #fff;
+	padding: 2rem;
+}
+
+h1 {
+	font-size: 5rem;
+	text-align: center;
+}
+
+main {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.sectionInput {
+	width: 300px;
+	margin: 3rem auto;
+}
+
+#inputUrl {
+	width: 100%;
+}
+
+.sectionContents {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 5px;
+}
+
+article {
+	background-color: #808080;
+	text-align: center;
+}
+
+.articleId {
+	font-size: 2rem;
+	font-weight: 900;
+}
+
+.articleImg {
+	width: 95%;
+	margin: 0 auto;
+}

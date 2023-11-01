@@ -11,7 +11,7 @@ function my_fetch() {
 		} else {
 			throw new Error('에러에러');
 		}
-	} )
+	})
 	.then( data => makeImg(data) )
 	.catch( error => console.log(error) );
 }

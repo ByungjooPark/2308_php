@@ -19,8 +19,8 @@ h1 {
 	height: 50px;
 	margin: auto;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-	grid-gap: 5px;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 5px;
 }
 
 .section {
