@@ -20,8 +20,8 @@ try {
 	// 페이징 처리
 	// ---------------
 	// 파라미터 획득
-	$page = isset($_GET["page"]) ? $_GET["page"] : "1"; // page 셋팅
-	if($page === "") {
+	$page_num = isset($_GET["page"]) ? $_GET["page"] : "1"; // page 셋팅
+	if($page_num === "") {
 		$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "page");
 	}
 	if(count($arr_err_msg) >= 1) {
