@@ -32,3 +32,12 @@
 			%{REQUEST_FILENAME} !-d || !-f : 요청된 주소에 해당하는 디렉토리 || 파일이 있는지 확인
 		- RewriteRule
 			RewriteCond가 true인 요청이면 설정한 요청으로 룰을 변경합니다.
+
+
+4. DataBase
+	1) user(유저) Table
+		- pk, 아이디, 비밀번호, 이름, 가입일자, 수정일자, 탈퇴일자
+	2) board(게시판) Table
+		- pk, 유저pk, 게시판타입, 제목, 내용, 이미지파일, 작성일자, 수정일자, 삭제일자
+	3) boardname(게시판 기본 정보) Table
+		- pk, 게시판타입, 게시판이름
