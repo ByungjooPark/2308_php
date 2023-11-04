@@ -4,6 +4,8 @@
 		- View : 사용자 인터페이스 요소로, 데이타를 기반으로 사용자들이 볼 수 있는 화면
 		- Controller : 모델과 뷰를 연결해주는 다리 역할
 
+![mvc](https://github.com/greenmeerkat/2308_php/assets/142575026/a44021dd-a660-4957-8861-3389766f1a86)
+
 2. Apache - httpd.conf 파일 수정
 	- 주석 해제       
 	LoadModule rewrite_module modules/mod_rewrite.so
