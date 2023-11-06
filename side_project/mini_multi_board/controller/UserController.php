@@ -28,9 +28,9 @@ class UserController extends ParentsController {
 		}
 
 		// 세션에 u_id 저장
-		$_SESSION["u_id"] = $resultUserInfo[0]["u_id"];
+		$_SESSION["u_pk"] = $resultUserInfo[0]["id"];
 
-		return "Location: /board/list";
+		return "Location: /board/list?b_type=0";
 	}
 
 	// 로그아웃 처리
