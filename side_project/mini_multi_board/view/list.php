@@ -33,16 +33,21 @@
 		<?php
 			foreach($this->arrBoardInfo as $item) {
 		?>
-			<div class="card">
+			<div class="card" id="card<?php echo $item["id"] ?>">
 				<img src="<?php echo isset($item["b_img"]) ? "/"._PATH_USERIMG.$item["b_img"] : ""; ?>" class="card-img-top" alt="이미지 없음">
 				<div class="card-body">
 					<h5 class="card-title"><?php echo $item["b_title"] ?></h5>
 					<p class="card-text"><?php echo mb_substr($item["b_content"], 0, 10)."..." ?></p>
-					<button
+					<!-- <button
 						class="btn btn-primary"
 						data-bs-toggle="modal"
 						data-bs-target="#modalDetail"
 						>상세
+					</button> -->
+					<button
+						class="btn btn-primary"
+						onclick="openDetail(<?php echo $item['id'] ?>); return false;"
+					>상세
 					</button>
 				</div>
 			</div>
@@ -52,20 +57,23 @@
 	</main>
 	
 	<!-- 상세 모달 -->
-	<div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="modalDetail" tabindex="-1" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-scrollable">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">개발자입니다.</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<h5 class="modal-title" id="b_title">개발자입니다.</h5>
+					<button type="button" onclick="closeDetailModal(); return false;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<span>살려주세요.</span>
+					<p>작성일 : <span id="created_at"></span></p>
+					<p>수정일 : <span id="updated_at"></span></p>
+					<span id="updated_at"></span>
+					<span id="b_content">살려주세요.</span>
 					<br><br>
-					<img src="./img/cat.jpg" class="card-img-top" alt="">
+					<img id="b_img" src="" class="card-img-top" alt="">
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+					<button type="button" onclick="closeDetailModal(); return false;" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
 				</div>
 			</div>
 		</div>

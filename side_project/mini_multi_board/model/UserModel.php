@@ -32,4 +32,34 @@ class UserModel extends ParentsModel {
 			exit();
 		}
 	}
+
+	// 유저 정보 insert
+	public function addUserInfo($arrAddUserInfo){
+		$sql =
+			" INSERT INTO user ( "
+			." 	u_id "
+			." 	,u_pw "
+			." 	,u_name "
+			." ) "
+			." VALUES ( "
+			." 	:u_id "
+			." 	,:u_pw "
+			." 	,:u_name "
+			." ) "
+			;
+		$prepare = [
+			":u_id" => $arrAddUserInfo["u_id"]
+			,":u_pw" => $arrAddUserInfo["u_pw"]
+			,":u_name" => $arrAddUserInfo["u_name"]
+		];
+		
+		try {
+			$stmt = $this->conn->prepare($sql);
+			$result = $stmt->execute($prepare);
+			return $result;
+		} catch (Exception $e) {
+			echo "UserModel->addUserInfo Error : ".$e->getMessage();
+			exit();
+		}
+	}
 }
