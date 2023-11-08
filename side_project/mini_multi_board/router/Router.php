@@ -40,6 +40,10 @@ class Router {
 			} else {
 				new UserController("registPost");
 			}
+		} else if($url === "user/idchk"){
+			if($method === "POST") {
+				new UserController("idChkPost");
+			}
 		} else if($url === "board/list") {
 			if($method === "GET") {
 				new BoardController("listGet");
