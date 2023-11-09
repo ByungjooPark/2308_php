@@ -73,6 +73,8 @@
 					<img id="b_img" src="" class="card-img-top" alt="">
 				</div>
 				<div class="modal-footer">
+					<input type="hidden" id="del_id" value="">
+					<button id="btn_del" type="button" onclick="deleteCard(); return false;" class="btn btn-secondary me-auto bd-highlight">삭제</button>
 					<button type="button" onclick="closeDetailModal(); return false;" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
 				</div>
 			</div>

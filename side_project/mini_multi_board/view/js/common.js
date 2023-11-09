@@ -27,12 +27,22 @@ function openDetail(id) {
 		const IMG = document.querySelector('#b_img');
 		const CREATED_AT = document.querySelector('#created_at');
 		const UPDATED_AT = document.querySelector('#updated_at');
+		const DEL_INPUT = document.querySelector('#del_id');
+		const BTN_DEL = document.querySelector('#btn_del');
 
 		TITLE.innerHTML = data.data.b_title;
 		CONTENT.innerHTML = data.data.b_content;
 		CREATED_AT.innerHTML = data.data.created_at;
 		UPDATED_AT.innerHTML = data.data.updated_at;
+		DEL_INPUT.value = data.data.id;
 		IMG.setAttribute('src', data.data.b_img);
+
+		// 삭제 버튼 표시 처리
+		if(data.data.uflg === "1") {
+			BTN_DEL.classList.remove('d-none');
+		} else {
+			BTN_DEL.classList.add('d-none');
+		}
 
 		// 모달 오픈
 		openModal();
@@ -86,4 +96,28 @@ function idChk() {
 		}
 	 })
 	.catch( error => console.log(error) );
+}
+
+// 삭제처리
+function deleteCard() {
+	const B_PK = document.querySelector('#del_id').value;
+	const URL = '/board/remove?id=' + B_PK;
+
+	fetch(URL)
+	.then( response => response.json() )
+	.then( data => {
+		if(data.errflg === "0") {
+			// 모달 닫기
+			closeDetailModal();
+
+			// 카드 삭제
+			const MAIN = document.querySelector('main');
+			const CARD_NAME = '#card' + data.id;
+			const DEL_CARD = document.querySelector(CARD_NAME);
+			MAIN.removeChild(DEL_CARD);
+		} else {
+			alert(data.msg);
+		}
+	})
+	.catch( error => console.log(error) )
 }

@@ -58,6 +58,10 @@ class Router {
 			if($method === "GET") {
 				new BoardController("detailGet");
 			}
+		} else if($url === "board/remove") {
+			if($method === "GET") {
+				new BoardController("removeGet");
+			}
 		}
 
 		// 없는 경로일 경우
