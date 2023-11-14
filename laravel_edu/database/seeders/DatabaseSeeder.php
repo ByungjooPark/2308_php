@@ -15,5 +15,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+
+        // 더미 데이터 삽입용 팩토리 호출
+
+        $cnt = 0;
+        while($cnt < 60) {
+            \App\Models\Board::factory(10)->create();
+            $cnt++;
+        }
     }
 }

@@ -27,7 +27,7 @@
 3. Laravel 프로젝트 생성 (이하 터미널에서 커멘드라인으로 작업)
 	3-1. Laravel 프로젝트를 생성할 위치로 이동
 	3-2. 아래 커멘드로 라라벨 설치
-		composer create-project laravel/laravel="9" larabel-board
+		composer create-project laravel/laravel="9" laravel-board
 		(**주의** : php.ini에 zip, fileinfo, openssl, pdo_mysql, mbstring Extension 주석 해제 필요)
 	3-3. Apache 설정
 		- root 변경
