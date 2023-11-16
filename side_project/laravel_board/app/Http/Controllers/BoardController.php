@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use App\Models\Board;
 
 class BoardController extends Controller
@@ -15,10 +17,12 @@ class BoardController extends Controller
      */
     public function index()
     {
+        /* del 231116 미들웨어로 이관
         // 로그인 체크
-        // if(!Auth::check()) {
-        //     return redirect()->route('user.login.get');
-        // }
+        if(!Auth::check()) {
+            return redirect()->route('user.login.get');
+        }
+        */
 
         // 게시글 획득
         $result = Board::get();
@@ -33,7 +37,7 @@ class BoardController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -44,7 +48,15 @@ class BoardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 작성 처리
+        $arrInpuData = $request->only('b_title', 'b_content');
+        $result = Board::create($arrInpuData);
+
+        // save()를 이용하는 방법
+        // $model = new Board($arrInpuData);
+        // $model->save();
+
+        return redirect()->route('board.index');
     }
 
     /**
@@ -55,7 +67,16 @@ class BoardController extends Controller
      */
     public function show($id)
     {
-        //
+        // 게시글 데이터 획득
+        $result = Board::find($id);
+
+        // 조회수 올리기
+        $result->b_hits++; // 조회수 1증가
+        $result->timestamps = false;
+        // 업데이트 처리
+        $result->save();
+
+        return view('detail')->with('data', $result);
     }
 
     /**
@@ -89,6 +110,9 @@ class BoardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Log::debug("--------- 삭제처리 시작 ---------");
+        Board::destroy($id);
+        Log::debug("--------- 삭제처리 종료 ---------");
+        return redirect()->route('board.index');
     }
 }

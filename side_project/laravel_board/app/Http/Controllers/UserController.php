@@ -20,6 +20,7 @@ class UserController extends Controller
         return view('login');
     }
     public function loginpost(Request $request) {
+        /* del 231116 미들웨어로 이관
         // 유효성 검사
         $validator = Validator::make(
             $request->only('email', 'password')
@@ -33,6 +34,7 @@ class UserController extends Controller
         if($validator->fails()){
             return view('login')->withErrors($validator->errors());
         }
+        */
 
         // 유저 정보 습득
         $result = User::where('email', $request->email)->first();
@@ -58,6 +60,7 @@ class UserController extends Controller
     }
 
     public function registrationpost(Request $request) {
+        /* del 231116 미들웨어로 이관
         // 유효성 검사
         $validator = Validator::make(
             $request->only('email', 'password', 'passwordchk', 'name')
@@ -72,6 +75,7 @@ class UserController extends Controller
         if($validator->fails()){
             return view('registration')->withErrors($validator->errors());
         }
+        */
 
         // 데이터 베이스에 저장할 데이터 획득
         $data = $request->only('email', 'password', 'name');
