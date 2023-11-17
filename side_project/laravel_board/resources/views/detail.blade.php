@@ -17,11 +17,15 @@
 			<p>{{'수정일 : '.$data->updated_at}}</p>
 		</div>
 		<div class="card-footer">
-			<form action="{{route('board.destroy', ['board' => $data->b_id])}}" method="post">
+			<form class="float-start" action="{{route('board.destroy', ['board' => $data->b_id])}}" method="post">
 				@csrf
 				@method('DELETE')
 				<button type="submit" class="btn btn-danger">삭제</button>
 			</form>
+			<div class="float-end">
+				<a class="btn btn-secondary" href="{{route('board.index')}}">취소</a>
+				<a class="btn btn-dark" href="{{route('board.edit', ['board' => $data->b_id])}}">수정</a>
+			</div>
 		</div>
 	</div>
 </main>
