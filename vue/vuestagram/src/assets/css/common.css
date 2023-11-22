@@ -1,0 +1,108 @@
+body {
+	margin: 0;
+}
+
+/* App */
+ul  {
+	padding: 0 20px;
+	list-style-type: none;
+}
+.logo {
+	width: 40px;
+	margin: auto;
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 10px;
+}
+.header {
+	width: 100%;
+	height: 60px;
+	background-color: black;
+	position: fixed;
+	top: 0;
+	z-index: 99;
+}
+.header-button {
+	font-size: 1.4em;
+	color: white;
+	width: 50px;
+	cursor: pointer;
+}
+.header-button-left {
+	float: left;
+}
+.header-button-right {
+	float: right;
+}
+.footer {
+	width: 100%;
+	height: 60px;
+	background-color: black;
+	position: sticky;
+	bottom: 0;
+}
+.footer-button-store {
+	color: white;
+	width: 80px;
+	margin: auto;
+	text-align: center;
+	font-size: 1.4em;
+	padding-top: 15px;
+}
+.input-file {
+	display: none;
+}
+.label-store {
+	cursor: pointer;
+}
+
+/* PostComponent */
+.post {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+.post-img {
+	width: 100%;
+	height: 400px;
+	background-position: center;
+	background-size: cover;
+	display: inline-block;
+}
+.post-content {
+	text-align: left;
+}
+
+/* ConteinerComponent */
+.upload-img{
+	width: 100%;
+	height: 400px;
+	background: black;
+	background-size : cover;
+}
+.filter-box{
+	overflow-x:scroll;
+	white-space: nowrap;
+}
+.filter {
+	width: 100px;
+	height: 100px;
+	background-color: black;
+	margin: 10px 10px 10px auto;
+	padding: 8px;
+	display: inline-block;
+	color : white;
+	background-size: cover;
+	background-position: center;
+}
+.write-box {
+	border: none;
+	width: 70%;
+	height: 50px;
+	padding: 15px;
+	margin: auto;
+	outline: none;
+	resize: none;
+}
