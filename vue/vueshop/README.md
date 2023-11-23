@@ -78,26 +78,6 @@ image를 동적으로 가져오기위해서는
 require("@/assets/room0.jpg") 로 js에서 작성 후 데이터 바인딩해야 합니다.
 
 -----------------------------------------------------------------------
-Transition
-	애니메이션 효과를 주는 문법
-
-사용 방법
-	아래를 스타일에 정의
-		등장 애니메이션
-			.클레스명-enter-from { 시작스타일 }
-			.클레스명-enter-active { transition }
-			.클레스명-enter-to { 끝 스타일}
-		퇴장 애니메이션
-			.클레스명-leave-from { 시작스타일 }
-			.클레스명-leave-active { transition }
-			.클레스명-leave-to { 끝 스타일}
-
-기타
-	조건부로 class명을 추가 하고 싶을 때,
-	:class="{ 클레스명 : 조건}" 객체를 넣으면 조건이 true일때만 동작
-
------------------------------------------------------------------------
-
 
 컴포넌트
 	HTML 짜다보면 <div> 수도없이 생성됩니다.
@@ -147,6 +127,37 @@ props
 		2-1. 이유는 데이터를 상위로 전송하는 것은 복잡하고 추적이 어렵기 때문
 
 -----------------------------------------------------------------------
+
+slot
+	props 대용으로 사용 할 수 있는 간편한 문법
+	하지만, HTML 태그로써만 사용 가능
+
+사용방법
+	1. 부모 컴포넌트에서 <자식 컴포넌트> 보낼데이터 </자식 컴포넌트> 로 작성
+	2. 자식 컴포넌트에 <slot></slot>로 데이터를 출력할 곳을 지정하여 사용
+
+Named Slots
+	여러개의 데이터를 전달하고 싶을 때 사용하는 문법
+
+사용방법
+	1. 부모 컴포넌트에서 아래처럼로 작성
+		 <자식 컴포넌트>
+			<template v-slot:a> 보낼데이터 </template>
+		 </자식 컴포넌트>
+	2. 자식 컴포넌트에 <slot name="a"></slot>로 데이터를 출력할 곳을 지정하여 사용
+
+-----------------------------------------------------------------------
+
+커스텀 이벤트
+	부모의 데이터를 수정하고 싶을 때 사용하는 문법
+	자식컴포넌트는 부모에게 메세지를 넘겨줍니다.
+
+사용 방법
+	1. 자식은 $emit(메세지명, 데이터) 로 부모에게 메세지를 전송
+	2. 부모는 @메세지명="실행 할 JS코드" 이렇게 메세지를 수신해서 원하는 데이터를 변경
+
+-----------------------------------------------------------------------
+
 v-model
 	사용자의 input을 받아 데이터를 저장하는 문법
 	@input="month = $event.target.value"를 짧게 쓸 수 있는 문법
@@ -172,6 +183,26 @@ Watcher
 
 -----------------------------------------------------------------------
 
+Transition
+	애니메이션 효과를 주는 문법
+
+사용 방법
+	아래를 스타일에 정의
+		등장 애니메이션
+			.클레스명-enter-from { 시작스타일 }
+			.클레스명-enter-active { transition }
+			.클레스명-enter-to { 끝 스타일}
+		퇴장 애니메이션
+			.클레스명-leave-from { 시작스타일 }
+			.클레스명-leave-active { transition }
+			.클레스명-leave-to { 끝 스타일}
+
+기타
+	조건부로 class명을 추가 하고 싶을 때,
+	:class="{ 클레스명 : 조건}" 객체를 넣으면 조건이 true일때만 동작
+
+-----------------------------------------------------------------------
+
 lifecycle
 	1. 컴포넌트를 보여줄 때 create -> mount 단계로 생성
 		create는 데이터생성, mount는 index.html에 작성
@@ -188,5 +219,209 @@ lifecycle hook
 		updated() {}
 		beforeUnmount() {}
 		unmounted() {}
+
+-----------------------------------------------------------------------
+
+Vuex
+	상태관리 (데이터관리) 라이브러리
+
+사용 이유
+	1. props와 custom event로 데이터 주고받는게 힘들 때
+		Vuex를 이용하면 js 파일하나에다가 모든 데이터를 다 저장가능
+		그로인해 모든 컴포넌트가 데이터(State)에 직접 접근가능 
+
+	2. Vue파일과 데이터가 너무 많을 경우 관리의 편의성을 위해서
+
+사용 방법
+	1. Vuex 설치 (https://vuex.vuejs.org/installation.html)
+		npm install vuex@next
+	
+	2. src디렉토리에 store.js 생성
+	
+	3. main.js에 설정
+		import store from './store.js'
+		createApp(App).use(store).mount('#app')
+
+	4. 컴포넌트에서 사용
+		4-1. vue 파일에서 출력시
+			{{ $store.state.데이터명 }}
+		4-2. 함수나 mounted 등에서 이용 시
+			this.$store.state.데이터명
+
+mutations (데이터 수정)
+	state를 수정하고 싶으면, 미리 store.js에 수정방법을 정의하고 그 방법을 호출해 수정할 것
+	** 순차적인 로직들만 선언 **
+
+	수정방법
+		1. store.js의 mutations 메소드에 데이터 수정 함수를 정의
+			mutations: {
+				test(state) {
+					~~~;
+				}
+			}
+		2. 1번을 호출해서 데이터 수정
+			2-1. vue 파일에서 출력시
+				$store.commit('해당 함수명');
+			2-2. 함수나 mounted 등에서 이용 시
+				this.$store.commit('해당 함수명');
+				this.$store.commit('해당 함수명', args);
+				this.$store.commit('해당 함수명', {args1, args2});
+
+actions (Ajax 요청 등)
+	ajax로 서버에 데이터를 요청할 때나 시간 함수등 비동기 처리는 actions에 정의
+	** 비동기 처리 로직들만 정의 **
+
+	사용방법
+		1. store.js의 actions 메소드에 데이터 수정 함수를 정의
+			actions: {
+				test(context) {
+					~~~;
+				}
+			}
+		2. 1번을 호출해서 데이터 수정
+			2-1. vue 파일에서 출력시
+				$store.dispatch('해당 함수명');
+			2-2. 함수나 mounted 등에서 이용 시
+				this.$store.dispatch('해당 함수명');
+				this.$store.dispatch('해당 함수명', args);
+				this.$store.dispatch('해당 함수명', {args1, args2});
+
+mapState
+	store.js에 정의한 것들을 좀더 간단하게 사용하기 위한 기능
+	"$store.state.name"으로 사용하던 것을 "name"만으로 사용 가능 
+
+	1. import
+	import {mapState, mapMutations, mapActions} from 'vuex';
+
+	2. 정의 (methods에 정의해도 동작함)
+		computed: {
+		...mapActions([]),
+		...mapMutations([]),
+		...mapState([])
+		}
+
+-----------------------------------------------------------------------
+
+axios
+
+사용방법
+	1. 인스톨
+		npm install axios
+	2. 등록
+		import axios from 'axios';
+	3. 사용
+		axios.get('URL입력')
+		.then((res) => {
+			성공했을 때 처리
+		})
+		.catch((err) => {
+			에러 처리
+		});
+
+-----------------------------------------------------------------------
+
+탭UI
+
+필터
+	1. 필터명
+	[ "aden", "_1977", "brannan", "brooklyn", "clarendon", "earlybird", "gingham", "hudson", 
+		"inkwell", "kelvin", "lark", "lofi", "maven", "mayfair", "moon", "nashville", "perpetua", 
+		"reyes", "rise", "slumber", "stinson", "toaster", "valencia", "walden", "willow", "xpro2"]
+
+	2. index.html에 아래 cdn 추가
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cssgram/0.1.12/cssgram.min.css" integrity="sha512-kr3JaEexN5V5Br47Lbg4B548Db46ulHRGGwvyZMVjnghW1BKmqIjgEgVHV8D7V+Cbqm/VBgo3Rcbtv+mGLoWXA==" crossorigin="anonymous" />
+
+-----------------------------------------------------------------------
+
+이미지 업로드
+	1. FileReader() 를 쓰면 이미지를 글자로 변환
+	2. URL.createObjectURL() 을 쓰면 이미지 URL을 생성
+	(다만 새로고침하면 사라짐)
+
+-----------------------------------------------------------------------
+
+Composition API
+	분산되어 있는 로직을, 관련 있는 로직들끼리 모아 개발하기 위해 사용
+	필수는 아니므로 Opsions API 중 선택해서 사용
+
+사용방법
+	1. 사용 할 기능들을 임포트
+		import { ref, reactive, onMounted... } from 'vue';
+
+	2. setup(){}에 데이터 생성, 조작, methods, computed, hook 등등 모두 작성
+		2-1. ref() & reactive()
+		reactive()의 경우 객체 타입일 경우에만 실시간 랜더링이 가능하고,
+		ref()의 경우에는 모든 데이터 타입에 대해서 실시간 랜더링이 가능
+		그러므로 관습적으로 ref()와 reactive()를 구분해서 쓰나, ref()만 사용해도 문제 없음
+			setup() {
+				let reactive = reactive(); // obj나 array형 정의
+				let ref = ref([]); // 그 외 자료형들 정의
+
+				return {...작성한 데이터들};
+			},
+
+		2-2. Props
+			props를 setup()에서 사용하고 싶을 시, props:{}를 생성 후 setup(props)로 셋팅을 해야 사용 가능
+			setup(props) {
+				let { props명 } = toRefs(props);
+
+				return {...작성한 데이터들};
+			},
+		
+		2-3. Watch
+			setup() {
+				watch( watch하고 싶은 데이터, () => {
+					실행하고 싶은 코드
+				})
+
+				return {...작성한 데이터들};
+			},
+
+		2-4. computed
+			setup() {
+				let test = computed( () => {
+					return 11;
+				})
+
+				return {...작성한 데이터들};
+			},
+
+-----------------------------------------------------------------------
+
+route
+	1. route 설치
+		npm install vue-router@4
+
+	2. src디렉토리에 router.js 생성
+		** main.js에 바로 설정해도 되나 일반적으로 라우터 파일을 따로 만듬 **
+		import { createWebHistory, createRouter } from "vue-router";
+		import 이름 from '컴포넌트 경로';
+
+		const routes = [
+		{
+			path: "/경로",
+			component: import한 컴포넌트,
+		}
+		];
+
+		const router = createRouter({
+		history: createWebHistory(),
+		routes,
+		});
+
+		export default router; 
+
+	3. main.js에 설정
+		import router from './router'
+		createApp(App).use(router).mount('#app')
+
+	4. App.vue에 라우트 사용
+		4-1. 기본 사용 방법
+			<router-view></router-view>
+		4-2. props 이용 시 방법
+			<router-view :boardsData="boardsData"></router-view>
+
+라우트 이동 링크 만드는 방법
+    <router-link to="/write">이동하기</router-link>
 
 -----------------------------------------------------------------------
