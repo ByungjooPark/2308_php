@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="app">
-        <App-Component></App-Component>
+        <App-Component :laravel-Data="{{ $data }}"></App-Component>
     </div>
 </body>
 </html>

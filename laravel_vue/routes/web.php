@@ -14,5 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $data = ['name' => '루트', 'id' => 1];
+    return view('welcome')->with('data', json_encode($data));
+});
+
+Route::get('/login', function () {
+    $data = ['name' => '로그인', 'id' => 1];
+    return view('welcome')->with('data', json_encode($data));
+});
+
+Route::get('/board', function () {
+    $data = ['name' => '보드', 'id' => 1];
+    return view('welcome')->with('data', json_encode($data));
 });

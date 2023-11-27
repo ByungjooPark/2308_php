@@ -16,5 +16,9 @@
         "postcss": "^8.1.14",
         "vue": "^3.3.8",
         "vue-loader": "^16.8.3"
+    },
+    "dependencies": {
+        "vue-router": "^4.2.5",
+        "vuex": "^4.0.2"
     }
 }
