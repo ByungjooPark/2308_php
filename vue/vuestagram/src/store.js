@@ -81,13 +81,13 @@ const store = createStore({
 					'Content-Type': 'multipart/form-data',
 				}
 			};
-			const data = {
-				name: '박병주',
-				img: context.state.postFileData,
-				content: document.getElementById('content').value,
-			};
+			
+			const formData = new FormData();
+			formData.append('name', '박병주');
+			formData.append('img', context.state.postFileData);
+			formData.append('content', document.getElementById('content').value);
 
-			axios.post(url, data, header)
+			axios.post(url, formData, header)
 			.then(res => {
 				// 작성글 데이터 저장
 				context.commit('setUnshiftBoard', res.data);
