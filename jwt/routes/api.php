@@ -15,3 +15,11 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::post('auth/login', [AuthController::class, 'login']);
+Route::get('auth', [AuthController::class, 'reisstoken']);
+
+Route::middleware('my.token.auth')->get('boards', function() {
+	return response()->json([
+		'code' => '0'
+		,'msg' => '인증된 유저입니다.'
+	]);
+});
